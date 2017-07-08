@@ -1,0 +1,128 @@
+package android.ddm;
+
+import java.nio.ByteBuffer;
+import org.apache.harmony.dalvik.ddmc.Chunk;
+import org.apache.harmony.dalvik.ddmc.ChunkHandler;
+import org.apache.harmony.dalvik.ddmc.DdmServer;
+import org.apache.harmony.dalvik.ddmc.DdmVmInternal;
+
+public class DdmHandleThread extends ChunkHandler {
+    public static final int CHUNK_STKL = 0;
+    public static final int CHUNK_THCR = 0;
+    public static final int CHUNK_THDE = 0;
+    public static final int CHUNK_THEN = 0;
+    public static final int CHUNK_THST = 0;
+    private static DdmHandleThread mInstance;
+
+    static {
+        /* JADX: method processing error */
+/*
+        Error: jadx.core.utils.exceptions.DecodeException: Load method exception in method: android.ddm.DdmHandleThread.<clinit>():void
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:113)
+	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:256)
+	at jadx.core.ProcessClass.process(ProcessClass.java:34)
+	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:281)
+	at jadx.api.JavaClass.decompile(JavaClass.java:59)
+	at jadx.api.JadxDecompiler$1.run(JadxDecompiler.java:161)
+Caused by: jadx.core.utils.exceptions.DecodeException:  in method: android.ddm.DdmHandleThread.<clinit>():void
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:46)
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:98)
+	... 5 more
+Caused by: java.lang.IllegalArgumentException: bogus opcode: 0073
+	at com.android.dx.io.OpcodeInfo.get(OpcodeInfo.java:1197)
+	at com.android.dx.io.OpcodeInfo.getFormat(OpcodeInfo.java:1212)
+	at com.android.dx.io.instructions.DecodedInstruction.decode(DecodedInstruction.java:72)
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:43)
+	... 6 more
+*/
+        /*
+        // Can't load method instructions.
+        */
+        throw new UnsupportedOperationException("Method not decompiled: android.ddm.DdmHandleThread.<clinit>():void");
+    }
+
+    private DdmHandleThread() {
+    }
+
+    public static void register() {
+        DdmServer.registerHandler(CHUNK_THEN, mInstance);
+        DdmServer.registerHandler(CHUNK_THST, mInstance);
+        DdmServer.registerHandler(CHUNK_STKL, mInstance);
+    }
+
+    public void connected() {
+    }
+
+    public void disconnected() {
+    }
+
+    public Chunk handleChunk(Chunk request) {
+        int type = request.type;
+        if (type == CHUNK_THEN) {
+            return handleTHEN(request);
+        }
+        if (type == CHUNK_THST) {
+            return handleTHST(request);
+        }
+        if (type == CHUNK_STKL) {
+            return handleSTKL(request);
+        }
+        throw new RuntimeException("Unknown packet " + ChunkHandler.name(type));
+    }
+
+    private Chunk handleTHEN(Chunk request) {
+        boolean enable = false;
+        if (wrapChunk(request).get() != null) {
+            enable = true;
+        }
+        DdmVmInternal.threadNotify(enable);
+        return null;
+    }
+
+    private Chunk handleTHST(Chunk request) {
+        ByteBuffer in = wrapChunk(request);
+        byte[] status = DdmVmInternal.getThreadStats();
+        if (status != null) {
+            return new Chunk(CHUNK_THST, status, 0, status.length);
+        }
+        return createFailChunk(1, "Can't build THST chunk");
+    }
+
+    private Chunk handleSTKL(Chunk request) {
+        int threadId = wrapChunk(request).getInt();
+        StackTraceElement[] trace = DdmVmInternal.getStackTraceById(threadId);
+        if (trace == null) {
+            return createFailChunk(1, "Stack trace unavailable");
+        }
+        return createStackChunk(trace, threadId);
+    }
+
+    private Chunk createStackChunk(StackTraceElement[] trace, int threadId) {
+        int bufferSize = (4 + 4) + 4;
+        for (StackTraceElement elem : trace) {
+            bufferSize = ((bufferSize + ((elem.getClassName().length() * 2) + 4)) + ((elem.getMethodName().length() * 2) + 4)) + 4;
+            if (elem.getFileName() != null) {
+                bufferSize += elem.getFileName().length() * 2;
+            }
+            bufferSize += 4;
+        }
+        ByteBuffer out = ByteBuffer.allocate(bufferSize);
+        out.putInt(0);
+        out.putInt(threadId);
+        out.putInt(trace.length);
+        for (StackTraceElement elem2 : trace) {
+            out.putInt(elem2.getClassName().length());
+            putString(out, elem2.getClassName());
+            out.putInt(elem2.getMethodName().length());
+            putString(out, elem2.getMethodName());
+            if (elem2.getFileName() != null) {
+                out.putInt(elem2.getFileName().length());
+                putString(out, elem2.getFileName());
+            } else {
+                out.putInt(0);
+            }
+            out.putInt(elem2.getLineNumber());
+        }
+        return new Chunk(CHUNK_STKL, out);
+    }
+}

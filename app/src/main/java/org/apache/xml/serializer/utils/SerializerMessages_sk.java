@@ -1,0 +1,70 @@
+package org.apache.xml.serializer.utils;
+
+import java.util.ListResourceBundle;
+import org.apache.xpath.res.XPATHErrorResources;
+
+public class SerializerMessages_sk extends ListResourceBundle {
+    public Object[][] getContents() {
+        contents = new Object[59][];
+        contents[0] = new Object[]{MsgKey.BAD_MSGKEY, "K\u013e\u00fa\u010d spr\u00e1vy ''{0}'' sa nenach\u00e1dza v triede spr\u00e1v ''{1}''"};
+        contents[1] = new Object[]{MsgKey.BAD_MSGFORMAT, "Zlyhal form\u00e1t spr\u00e1vy ''{0}'' v triede spr\u00e1v ''{1}''."};
+        contents[2] = new Object[]{MsgKey.ER_SERIALIZER_NOT_CONTENTHANDLER, "Trieda serializ\u00e1tora ''{0}'' neimplementuje org.xml.sax.ContentHandler."};
+        contents[3] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_FIND, "Prostriedok [ {0} ] nemohol by\u0165 n\u00e1jden\u00fd.\n {1}"};
+        contents[4] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_LOAD, "Prostriedok [ {0} ] sa nedal na\u010d\u00edta\u0165: {1} \n {2} \t {3}"};
+        contents[5] = new Object[]{MsgKey.ER_BUFFER_SIZE_LESSTHAN_ZERO, "Ve\u013ekos\u0165 vyrovn\u00e1vacej pam\u00e4te <=0"};
+        contents[6] = new Object[]{XPATHErrorResources.ER_INVALID_UTF16_SURROGATE, "Bolo zisten\u00e9 neplatn\u00e9 nahradenie UTF-16: {0} ?"};
+        contents[7] = new Object[]{XPATHErrorResources.ER_OIERROR, "chyba IO"};
+        contents[8] = new Object[]{MsgKey.ER_ILLEGAL_ATTRIBUTE_POSITION, "Nie je mo\u017en\u00e9 prida\u0165 atrib\u00fat {0} po uzloch potomka alebo pred vytvoren\u00edm elementu.  Atrib\u00fat bude ignorovan\u00fd."};
+        contents[9] = new Object[]{MsgKey.ER_NAMESPACE_PREFIX, "N\u00e1zvov\u00fd priestor pre predponu ''{0}'' nebol deklarovan\u00fd."};
+        contents[10] = new Object[]{MsgKey.ER_STRAY_ATTRIBUTE, "Atrib\u00fat ''{0}'' je mimo prvku."};
+        contents[11] = new Object[]{MsgKey.ER_STRAY_NAMESPACE, "Deklar\u00e1cia n\u00e1zvov\u00e9ho priestoru ''{0}''=''{1}'' je mimo prvku."};
+        contents[12] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_RESOURCE, "Nebolo mo\u017en\u00e9 zavies\u0165 ''{0}'' (skontrolujte CLASSPATH), teraz sa pou\u017e\u00edvaj\u00fa iba \u0161tandardn\u00e9 nastavenia"};
+        contents[13] = new Object[]{MsgKey.ER_ILLEGAL_CHARACTER, "Pokus o v\u00fdstup znaku integr\u00e1lnej hodnoty {0}, ktor\u00e1 nie je reprezentovan\u00e1 v zadanom v\u00fdstupnom k\u00f3dovan\u00ed {1}."};
+        contents[14] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_METHOD_PROPERTY, "Nebolo mo\u017en\u00e9 zavies\u0165 s\u00fabor vlastnost\u00ed ''{0}'' pre v\u00fdstupn\u00fa met\u00f3du ''{1}'' (skontrolujte CLASSPATH)"};
+        contents[15] = new Object[]{MsgKey.ER_INVALID_PORT, "Neplatn\u00e9 \u010d\u00edslo portu"};
+        contents[16] = new Object[]{MsgKey.ER_PORT_WHEN_HOST_NULL, "Nem\u00f4\u017ee by\u0165 stanoven\u00fd port, ak je hostite\u013e nulov\u00fd"};
+        contents[17] = new Object[]{MsgKey.ER_HOST_ADDRESS_NOT_WELLFORMED, "Hostite\u013e nie je spr\u00e1vne form\u00e1tovan\u00e1 adresa"};
+        contents[18] = new Object[]{MsgKey.ER_SCHEME_NOT_CONFORMANT, "Nezhodn\u00e1 sch\u00e9ma."};
+        contents[19] = new Object[]{MsgKey.ER_SCHEME_FROM_NULL_STRING, "Nie je mo\u017en\u00e9 stanovi\u0165 sch\u00e9mu z nulov\u00e9ho re\u0165azca"};
+        contents[20] = new Object[]{MsgKey.ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE, "Cesta obsahuje neplatn\u00fa \u00fanikov\u00fa sekvenciu"};
+        contents[21] = new Object[]{MsgKey.ER_PATH_INVALID_CHAR, "Cesta obsahuje neplatn\u00fd znak: {0}"};
+        contents[22] = new Object[]{MsgKey.ER_FRAG_INVALID_CHAR, "Fragment obsahuje neplatn\u00fd znak"};
+        contents[23] = new Object[]{MsgKey.ER_FRAG_WHEN_PATH_NULL, "Ak je cesta nulov\u00e1, nem\u00f4\u017ee by\u0165 stanoven\u00fd fragment"};
+        contents[24] = new Object[]{MsgKey.ER_FRAG_FOR_GENERIC_URI, "Fragment m\u00f4\u017ee by\u0165 stanoven\u00fd len pre v\u0161eobecn\u00e9 URI"};
+        contents[25] = new Object[]{MsgKey.ER_NO_SCHEME_IN_URI, "V URI nebola n\u00e1jden\u00e1 \u017eiadna sch\u00e9ma"};
+        contents[26] = new Object[]{MsgKey.ER_CANNOT_INIT_URI_EMPTY_PARMS, "Nie je mo\u017en\u00e9 inicializova\u0165 URI s pr\u00e1zdnymi parametrami"};
+        contents[27] = new Object[]{MsgKey.ER_NO_FRAGMENT_STRING_IN_PATH, "Fragment nem\u00f4\u017ee by\u0165 zadan\u00fd v ceste, ani vo fragmente"};
+        contents[28] = new Object[]{MsgKey.ER_NO_QUERY_STRING_IN_PATH, "Re\u0165azec dotazu nem\u00f4\u017ee by\u0165 zadan\u00fd v ceste a re\u0165azci dotazu"};
+        contents[29] = new Object[]{MsgKey.ER_NO_PORT_IF_NO_HOST, "Ak nebol zadan\u00fd hostite\u013e, mo\u017eno nebol zadan\u00fd port"};
+        contents[30] = new Object[]{MsgKey.ER_NO_USERINFO_IF_NO_HOST, "Ak nebol zadan\u00fd hostite\u013e, mo\u017eno nebolo zadan\u00e9 userinfo"};
+        contents[31] = new Object[]{MsgKey.ER_XML_VERSION_NOT_SUPPORTED, "Varovanie:  Verzia v\u00fdstupn\u00e9ho dokumentu mus\u00ed by\u0165 povinne ''{0}''.  T\u00e1to verzia XML nie je podporovan\u00e1.  Verzia v\u00fdstupn\u00e9ho dokumentu bude ''1.0''."};
+        contents[32] = new Object[]{MsgKey.ER_SCHEME_REQUIRED, "Je po\u017eadovan\u00e1 sch\u00e9ma!"};
+        contents[33] = new Object[]{MsgKey.ER_FACTORY_PROPERTY_MISSING, "Objekt Properties, ktor\u00fd pre\u0161iel do SerializerFactory, nem\u00e1 vlastnos\u0165 ''{0}''."};
+        contents[34] = new Object[]{MsgKey.ER_ENCODING_NOT_SUPPORTED, "Varovanie:  Java runtime nepodporuje k\u00f3dovanie ''{0}''."};
+        contents[35] = new Object[]{MsgKey.ER_FEATURE_NOT_FOUND, "Parameter ''{0}'' nebol rozpoznan\u00fd."};
+        contents[36] = new Object[]{MsgKey.ER_FEATURE_NOT_SUPPORTED, "Parameter ''{0}'' bol rozpoznan\u00fd, ale vy\u017eadovan\u00e1 hodnota sa ned\u00e1 nastavi\u0165."};
+        contents[37] = new Object[]{MsgKey.ER_STRING_TOO_LONG, "V\u00fdsledn\u00fd re\u0165azec je pr\u00edli\u0161 dlh\u00fd a nezmest\u00ed sa do DOMString: ''{0}''."};
+        contents[38] = new Object[]{MsgKey.ER_TYPE_MISMATCH_ERR, "Typ hodnoty pre tento n\u00e1zov parametra je nekompatibiln\u00fd s o\u010dak\u00e1van\u00fdm typom hodnoty."};
+        contents[39] = new Object[]{MsgKey.ER_NO_OUTPUT_SPECIFIED, "Cie\u013e v\u00fdstupu pre zap\u00edsanie \u00fadajov bol null."};
+        contents[40] = new Object[]{MsgKey.ER_UNSUPPORTED_ENCODING, "Bolo zaznamenan\u00e9 nepodporovan\u00e9 k\u00f3dovanie."};
+        contents[41] = new Object[]{MsgKey.ER_UNABLE_TO_SERIALIZE_NODE, "Uzol nebolo mo\u017en\u00e9 serializova\u0165."};
+        contents[42] = new Object[]{MsgKey.ER_CDATA_SECTIONS_SPLIT, "\u010cas\u0165 CDATA obsahuje jeden alebo viacer\u00e9 ozna\u010dova\u010de konca ']]>'."};
+        contents[43] = new Object[]{MsgKey.ER_WARNING_WF_NOT_CHECKED, "Nebolo mo\u017en\u00e9 vytvori\u0165 in\u0161tanciu kontrol\u00f3ra Well-Formedness.  Parameter well-formed bol nastaven\u00fd na hodnotu true, ale kontrola well-formedness sa ned\u00e1 vykona\u0165."};
+        contents[44] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER, "Uzol ''{0}'' obsahuje neplatn\u00e9 znaky XML."};
+        contents[45] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_COMMENT, "V koment\u00e1ri bol n\u00e1jden\u00fd neplatn\u00fd znak XML (Unicode: 0x{0})."};
+        contents[46] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_PI, "Pri spracovan\u00ed d\u00e1t in\u0161trukci\u00ed sa na\u0161iel neplatn\u00fd znak XML (Unicode: 0x{0})."};
+        contents[47] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_CDATA, "V obsahu CDATASection sa na\u0161iel neplatn\u00fd znak XML (Unicode: 0x{0})."};
+        contents[48] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_TEXT, "V obsahu znakov\u00fdch d\u00e1t uzla sa na\u0161iel neplatn\u00fd znak XML (Unicode: 0x{0})."};
+        contents[49] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_NODE_NAME, "V uzle {0} s n\u00e1zvom ''{1}'' sa na\u0161iel neplatn\u00fd znak XML."};
+        contents[50] = new Object[]{MsgKey.ER_WF_DASH_IN_COMMENT, "Re\u0165azec \"--\" nie je povolen\u00fd v r\u00e1mci koment\u00e1rov."};
+        contents[51] = new Object[]{MsgKey.ER_WF_LT_IN_ATTVAL, "Hodnota atrib\u00fatu \"{1}\", ktor\u00e1 je priraden\u00e1 k prvku typu \"{0}\", nesmie obsahova\u0165 znak ''<''."};
+        contents[52] = new Object[]{MsgKey.ER_WF_REF_TO_UNPARSED_ENT, "Neanalyzovan\u00fd odkaz na entitu \"&{0};\" nie je povolen\u00fd."};
+        contents[53] = new Object[]{MsgKey.ER_WF_REF_TO_EXTERNAL_ENT, "Odkaz na extern\u00fa entitu \"&{0};\" nie je povolen\u00fd v hodnote atrib\u00fatu."};
+        contents[54] = new Object[]{MsgKey.ER_NS_PREFIX_CANNOT_BE_BOUND, "Predpona \"{0}\" nem\u00f4\u017ee by\u0165 naviazan\u00e1 na n\u00e1zvov\u00fd priestor \"{1}\"."};
+        contents[55] = new Object[]{MsgKey.ER_NULL_LOCAL_ELEMENT_NAME, "Lok\u00e1lny n\u00e1zov prvku \"{0}\" je null."};
+        contents[56] = new Object[]{MsgKey.ER_NULL_LOCAL_ATTR_NAME, "Lok\u00e1lny n\u00e1zov atrib\u00fatu \"{0}\" je null."};
+        contents[57] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "N\u00e1hradn\u00fd text pre uzol entity \"{0}\" obsahuje uzol prvku \"{1}\" s nenaviazanou predponou \"{2}\"."};
+        contents[58] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "N\u00e1hradn\u00fd text uzla entity \"{0}\" obsahuje uzol atrib\u00fatu \"{1}\" s nenaviazanou predponou \"{2}\"."};
+        return contents;
+    }
+}

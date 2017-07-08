@@ -1,0 +1,70 @@
+package org.apache.xml.serializer.utils;
+
+import java.util.ListResourceBundle;
+import org.apache.xpath.res.XPATHErrorResources;
+
+public class SerializerMessages_sl extends ListResourceBundle {
+    public Object[][] getContents() {
+        contents = new Object[59][];
+        contents[0] = new Object[]{MsgKey.BAD_MSGKEY, "Klju\u010d sporo\u010dila ''{0}'' ni v rezredu sporo\u010dila ''{1}''"};
+        contents[1] = new Object[]{MsgKey.BAD_MSGFORMAT, "Format sporo\u010dila ''{0}'' v razredu sporo\u010dila ''{1}'' je spodletel."};
+        contents[2] = new Object[]{MsgKey.ER_SERIALIZER_NOT_CONTENTHANDLER, "Razred serializerja ''{0}'' ne izvede org.xml.sax.ContentHandler."};
+        contents[3] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_FIND, "Vira [ {0} ] ni mogo\u010de najti.\n {1}"};
+        contents[4] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_LOAD, "Sredstva [ {0} ] ni bilo mogo\u010de nalo\u017eiti: {1} \n {2} \t {3}"};
+        contents[5] = new Object[]{MsgKey.ER_BUFFER_SIZE_LESSTHAN_ZERO, "Velikost medpomnilnika <=0"};
+        contents[6] = new Object[]{XPATHErrorResources.ER_INVALID_UTF16_SURROGATE, "Zaznan neveljaven nadomestek UTF-16: {0} ?"};
+        contents[7] = new Object[]{XPATHErrorResources.ER_OIERROR, "Napaka V/I"};
+        contents[8] = new Object[]{MsgKey.ER_ILLEGAL_ATTRIBUTE_POSITION, "Atributa {0} ne morem dodati za podrejenimi vozli\u0161\u010di ali pred izdelavo elementa.  Atribut bo prezrt."};
+        contents[9] = new Object[]{MsgKey.ER_NAMESPACE_PREFIX, "Imenski prostor za predpono ''{0}'' ni bil naveden."};
+        contents[10] = new Object[]{MsgKey.ER_STRAY_ATTRIBUTE, "Atribut ''{0}'' je zunaj elementa."};
+        contents[11] = new Object[]{MsgKey.ER_STRAY_NAMESPACE, "Deklaracija imenskega prostora ''{0}''=''{1}'' je zunaj elementa."};
+        contents[12] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_RESOURCE, "Ni bilo mogo\u010de nalo\u017eiti ''{0}'' (preverite CLASSPATH), trenutno se uporabljajo samo privzete vrednosti"};
+        contents[13] = new Object[]{MsgKey.ER_ILLEGAL_CHARACTER, "Poskus izpisa znaka integralne vrednosti {0}, ki v navedenem izhodnem kodiranju {1} ni zastopan."};
+        contents[14] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_METHOD_PROPERTY, "Datoteke z lastnostmi ''{0}'' ni bilo mogo\u010de nalo\u017eiti za izhodno metodo ''{1}'' (preverite CLASSPATH)"};
+        contents[15] = new Object[]{MsgKey.ER_INVALID_PORT, "Neveljavna \u0161tevilka vrat"};
+        contents[16] = new Object[]{MsgKey.ER_PORT_WHEN_HOST_NULL, "Ko je gostitelj NULL, nastavitev vrat ni mogo\u010da"};
+        contents[17] = new Object[]{MsgKey.ER_HOST_ADDRESS_NOT_WELLFORMED, "Naslov gostitelja ni pravilno oblikovan"};
+        contents[18] = new Object[]{MsgKey.ER_SCHEME_NOT_CONFORMANT, "Shema ni skladna."};
+        contents[19] = new Object[]{MsgKey.ER_SCHEME_FROM_NULL_STRING, "Ni mogo\u010de nastaviti sheme iz niza NULL"};
+        contents[20] = new Object[]{MsgKey.ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE, "Pot vsebuje neveljavno zaporedje za izhod"};
+        contents[21] = new Object[]{MsgKey.ER_PATH_INVALID_CHAR, "Pot vsebuje neveljaven znak: {0}"};
+        contents[22] = new Object[]{MsgKey.ER_FRAG_INVALID_CHAR, "Fragment vsebuje neveljaven znak"};
+        contents[23] = new Object[]{MsgKey.ER_FRAG_WHEN_PATH_NULL, "Ko je pot NULL, nastavitev fragmenta ni mogo\u010da"};
+        contents[24] = new Object[]{MsgKey.ER_FRAG_FOR_GENERIC_URI, "Fragment je lahko nastavljen samo za splo\u0161ni URI"};
+        contents[25] = new Object[]{MsgKey.ER_NO_SCHEME_IN_URI, "Ne najdem sheme v URI"};
+        contents[26] = new Object[]{MsgKey.ER_CANNOT_INIT_URI_EMPTY_PARMS, "Ni mogo\u010de inicializirati URI-ja s praznimi parametri"};
+        contents[27] = new Object[]{MsgKey.ER_NO_FRAGMENT_STRING_IN_PATH, "Fragment ne more biti hkrati naveden v poti in v fragmentu"};
+        contents[28] = new Object[]{MsgKey.ER_NO_QUERY_STRING_IN_PATH, "Poizvedbeni niz ne more biti naveden v nizu poti in poizvedbenem nizu"};
+        contents[29] = new Object[]{MsgKey.ER_NO_PORT_IF_NO_HOST, "Vrata ne morejo biti navedena, \u010de ni naveden gostitelj"};
+        contents[30] = new Object[]{MsgKey.ER_NO_USERINFO_IF_NO_HOST, "Informacije o uporabniku ne morejo biti navedene, \u010de ni naveden gostitelj"};
+        contents[31] = new Object[]{MsgKey.ER_XML_VERSION_NOT_SUPPORTED, "Opozorilo: Zahtevana razli\u010dica izhodnega dokumenta je ''{0}''.  Ta razli\u010dica XML ni podprta.  Razli\u010dica izhodnega dokumenta bo ''1.0''."};
+        contents[32] = new Object[]{MsgKey.ER_SCHEME_REQUIRED, "Zahtevana je shema!"};
+        contents[33] = new Object[]{MsgKey.ER_FACTORY_PROPERTY_MISSING, "Predmet Properties (lastnosti), ki je prene\u0161en v SerializerFactory, nima lastnosti ''{0}''."};
+        contents[34] = new Object[]{MsgKey.ER_ENCODING_NOT_SUPPORTED, "Opozorilo:  Izvajalno okolje Java ne podpira kodiranja ''{0}''."};
+        contents[35] = new Object[]{MsgKey.ER_FEATURE_NOT_FOUND, "Parameter ''{0}'' ni prepoznan."};
+        contents[36] = new Object[]{MsgKey.ER_FEATURE_NOT_SUPPORTED, "Parameter ''{0}'' je prepoznan, vendar pa zahtevane vrednosti ni mogo\u010de nastaviti."};
+        contents[37] = new Object[]{MsgKey.ER_STRING_TOO_LONG, "Nastali niz je predolg za DOMString: ''{0}''."};
+        contents[38] = new Object[]{MsgKey.ER_TYPE_MISMATCH_ERR, "Tip vrednosti za to ime parametra je nezdru\u017eljiv s pri\u010dakovanim tipom vrednosti."};
+        contents[39] = new Object[]{MsgKey.ER_NO_OUTPUT_SPECIFIED, "Izhodno mesto za vpisovanje podatkov je bilo ni\u010d."};
+        contents[40] = new Object[]{MsgKey.ER_UNSUPPORTED_ENCODING, "Odkrito je nepodprto kodiranje."};
+        contents[41] = new Object[]{MsgKey.ER_UNABLE_TO_SERIALIZE_NODE, "Vozli\u0161\u010da ni mogo\u010de serializirati."};
+        contents[42] = new Object[]{MsgKey.ER_CDATA_SECTIONS_SPLIT, "Odsek CDATA vsebuje enega ali ve\u010d ozna\u010devalnikov prekinitve ']]>'."};
+        contents[43] = new Object[]{MsgKey.ER_WARNING_WF_NOT_CHECKED, "Primerka preverjevalnika Well-Formedness ni bilo mogo\u010de ustvariti.  Parameter well-formed je bil nastavljen na True, ampak ni mogo\u010de preveriti well-formedness."};
+        contents[44] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER, "Vozli\u0161\u010de ''{0}'' vsebuje neveljavne znake XML."};
+        contents[45] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_COMMENT, "V komentarju je bil najden neveljaven XML znak (Unicode: 0x{0})."};
+        contents[46] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_PI, "V podatkih navodila za obdelavo je bil najden neveljaven znak XML (Unicode: 0x{0})."};
+        contents[47] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_CDATA, "V vsebini odseka CDATASection je bil najden neveljaven znak XML (Unicode: 0x{0})."};
+        contents[48] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_TEXT, "V podatkovni vsebini znaka vozli\u0161\u010da je bil najden neveljaven znak XML (Unicode: 0x{0})."};
+        contents[49] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_NODE_NAME, "V vozli\u0161\u010du {0} z imenom ''{1}'' je bil najden neveljaven znak XML."};
+        contents[50] = new Object[]{MsgKey.ER_WF_DASH_IN_COMMENT, "Niz \"--\" ni dovoljen v komentarjih."};
+        contents[51] = new Object[]{MsgKey.ER_WF_LT_IN_ATTVAL, "Vrednost atributa \"{1}\", ki je povezan s tipom elementa \"{0}\", ne sme vsebovati znaka ''<''."};
+        contents[52] = new Object[]{MsgKey.ER_WF_REF_TO_UNPARSED_ENT, "Neraz\u010dlenjeni sklic entitete \"&{0};\" ni dovoljen."};
+        contents[53] = new Object[]{MsgKey.ER_WF_REF_TO_EXTERNAL_ENT, "Zunanji sklic entitete \"&{0};\" ni dovoljen v vrednosti atributa."};
+        contents[54] = new Object[]{MsgKey.ER_NS_PREFIX_CANNOT_BE_BOUND, "Predpona \"{0}\" ne more biti povezana z imenskim prostorom \"{1}\"."};
+        contents[55] = new Object[]{MsgKey.ER_NULL_LOCAL_ELEMENT_NAME, "Lokalno ime elementa \"{0}\" je ni\u010d."};
+        contents[56] = new Object[]{MsgKey.ER_NULL_LOCAL_ATTR_NAME, "Lokalno ime atributa \"{0}\" je ni\u010d."};
+        contents[57] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "Besedilo za zamenjavo za vozli\u0161\u010de entitete \"{0}\" vsebuje vozli\u0161\u010de elementa \"{1}\" z nevezano predpono \"{2}\"."};
+        contents[58] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "Besedilo za zamenjavo za vozli\u0161\u010de entitete \"{0}\" vsebuje vozli\u0161\u010de atributa \"{1}\" z nevezano predpono \"{2}\"."};
+        return contents;
+    }
+}

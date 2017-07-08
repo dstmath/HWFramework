@@ -1,0 +1,42 @@
+package com.android.server.wifipro;
+
+public class WifiProCommonDefs {
+    public static final String ACTION_DHCP_OFFER_INFO = "com.hw.wifipro.action.DHCP_OFFER_INFO";
+    public static final String ACTION_NOTIFY_WIFI_SECURITY_STATUS = "com.huawei.wifipro.ACTION_NOTIFY_WIFI_SECURITY_STATUS";
+    public static final String ACTION_PORTAL_CANCELED_BY_USER = "com.huawei.wifipro.action.ACTION_PORTAL_CANCELED_BY_USER";
+    public static final String ACTION_PORTAL_USED_BY_USER = "com.huawei.wifipro.action.ACTION_PORTAL_USED_BY_USER";
+    public static final String ACTION_QUERY_WIFI_SECURITY = "com.huawei.wifipro.ACTION_QUERY_WIFI_SECURITY";
+    public static final String ACTION_REQUEST_WEBVIEW_CHECK = "com.huawei.wifipro.action.ACTION_REQUEST_WEBVIEW_CHECK";
+    public static final String ACTION_REQUEST_WEBVIEW_CHECK_TO_SERVICE = "com.huawei.wifipro.action.ACTION_REQUEST_WEBVIEW_CHECK_TO_SERVICE";
+    public static final String ACTION_RESP_WEBVIEW_CHECK = "com.huawei.wifipro.action.ACTION_RESP_WEBVIEW_CHECK";
+    public static final String ACTION_RESP_WEBVIEW_CHECK_FROM_SERVICE = "com.huawei.wifipro.action.ACTION_RESP_WEBVIEW_CHECK_FROM_SERVICE";
+    public static final String AP_BSSID = "AP_BSSID";
+    public static final String AP_BTN_NUM = "AP_Btn_Number";
+    public static final String AP_CELLID = "AP_CELLID";
+    public static final String AP_Code_Input_ID = "AP_Code_Input_ID";
+    public static final String AP_Login_Button_ID = "AP_Login_Button_ID";
+    public static final int AP_MIN_INPUT_NUM = 2;
+    public static final String AP_Phone_Number_ID = "AP_Phone_Number_ID";
+    public static final String AP_SSID = "AP_SSID";
+    public static final String AP_Send_Button_ID = "AP_Send_Button_ID";
+    public static final String AP_URL = "AP_URL";
+    public static final String EXTRA_FLAG_NETWORK_TYPE = "wifipro_flag_network_type";
+    public static final String EXTRA_FLAG_OVERSEA = "wifipro_flag_oversea";
+    public static final String EXTRA_RAW_REDIRECTED_HOST = "raw_redirected_host";
+    public static final String FLAG_BSSID = "com.huawei.wifipro.FLAG_BSSID";
+    public static final String FLAG_DHCP_OFFER_INFO = "com.hw.wifipro.FLAG_DHCP_OFFER_INFO";
+    public static final String FLAG_SECURITY_STATUS = "com.huawei.wifipro.FLAG_SECURITY_STATUS";
+    public static final String FLAG_SSID = "com.huawei.wifipro.FLAG_SSID";
+    public static final int MIN_VAL_LEVEL_3 = -75;
+    public static final int QUERY_TIMEOUT_MS = 30000;
+    public static final int TYEP_HAS_INTERNET = 101;
+    public static final int TYEP_PORTAL = 102;
+    public static final int TYEP_UNKNOWN = 100;
+    public static final String WIFI_PRO_SECURITY_RECV_PERMISSION = "com.huawei.wifipro.permission.WIFI_SECURITY_CHECK";
+    public static final int WIFI_SECURITY_ARP_FAILED = 4;
+    public static final int WIFI_SECURITY_DNS_FAILED = 2;
+    public static final int WIFI_SECURITY_DNS_PHISHING_TIMEOUT = 1;
+    public static final int WIFI_SECURITY_OK = 0;
+    public static final int WIFI_SECURITY_PHISHING_FAILED = 3;
+    public static final int WIFI_SECURITY_UNKNOWN = -1;
+}

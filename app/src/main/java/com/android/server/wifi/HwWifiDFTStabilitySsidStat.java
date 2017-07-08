@@ -1,0 +1,75 @@
+package com.android.server.wifi;
+
+public class HwWifiDFTStabilitySsidStat {
+    public short mAbnormalDisconnCount;
+    public short mAccessWebSlowlyCnt;
+    public short mAccessWebfailCnt;
+    public String mApSsid;
+    public short mAssocCount;
+    public int mAssocDuration;
+    public short mAssocSuccCount;
+    public short mAuthCount;
+    public int mAuthDuration;
+    public short mAuthSuccCount;
+    public short mConnectedCount;
+    public int mConnectingDuration;
+    public int mConnectionDuration;
+    public int mDhcpDuration;
+    public int mDhcpRenewCount;
+    public int mDhcpRenewDuration;
+    public int mDhcpRenewSuccCount;
+    public short mDhcpSuccCount;
+    public int mDnsAvgTime;
+    public int mDnsReqCnt;
+    public int mDnsReqFail;
+    public byte mGwIpCount;
+    public byte mGwMacCount;
+    public short mIpAutoCount;
+    public short mIpDhcpCount;
+    public short mIpStaticCount;
+    public byte mPublicEssCount;
+    public int mRekeyCount;
+    public int mRekeyDuration;
+    public int mRekeySuccCount;
+    public int mRoamingCount;
+    public int mRoamingDuration;
+    public int mRoamingSuccCount;
+    public int mRssiAvg;
+
+    public HwWifiDFTStabilitySsidStat() {
+        this.mApSsid = "";
+        this.mPublicEssCount = (byte) 0;
+        this.mAssocCount = (short) 0;
+        this.mAssocSuccCount = (short) 0;
+        this.mAuthCount = (short) 0;
+        this.mAuthSuccCount = (short) 0;
+        this.mIpDhcpCount = (short) 0;
+        this.mDhcpSuccCount = (short) 0;
+        this.mIpStaticCount = (short) 0;
+        this.mIpAutoCount = (short) 0;
+        this.mConnectedCount = (short) 0;
+        this.mAbnormalDisconnCount = (short) 0;
+        this.mAssocDuration = 0;
+        this.mAuthDuration = 0;
+        this.mDhcpDuration = 0;
+        this.mConnectingDuration = 0;
+        this.mConnectionDuration = 0;
+        this.mDnsReqCnt = 0;
+        this.mDnsReqFail = 0;
+        this.mDnsAvgTime = 0;
+        this.mDhcpRenewCount = 0;
+        this.mDhcpRenewSuccCount = 0;
+        this.mDhcpRenewDuration = 0;
+        this.mRoamingCount = 0;
+        this.mRoamingSuccCount = 0;
+        this.mRoamingDuration = 0;
+        this.mRekeyCount = 0;
+        this.mRekeySuccCount = 0;
+        this.mRekeyDuration = 0;
+        this.mAccessWebfailCnt = (short) 0;
+        this.mAccessWebSlowlyCnt = (short) 0;
+        this.mGwIpCount = (byte) 0;
+        this.mGwMacCount = (byte) 0;
+        this.mRssiAvg = 0;
+    }
+}

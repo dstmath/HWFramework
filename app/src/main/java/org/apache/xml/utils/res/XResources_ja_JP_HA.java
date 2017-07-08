@@ -1,0 +1,28 @@
+package org.apache.xml.utils.res;
+
+public class XResources_ja_JP_HA extends XResourceBundle {
+    public Object[][] getContents() {
+        r0 = new Object[14][];
+        r0[0] = new Object[]{"ui_language", "ja"};
+        r0[1] = new Object[]{"help_language", "ja"};
+        r0[2] = new Object[]{"language", "ja"};
+        r0[3] = new Object[]{XResourceBundle.LANG_ALPHABET, new CharArrayWrapper(new char[]{'\u3042', '\u3044', '\u3046', '\u3048', '\u304a', '\u304b', '\u304d', '\u304f', '\u3051', '\u3053', '\u3055', '\u3057', '\u3059', '\u305b', '\u305d', '\u305f', '\u3061', '\u3064', '\u3066', '\u3068', '\u306a', '\u306b', '\u306c', '\u306d', '\u306e', '\u306f', '\u3072', '\u3075', '\u3078', '\u307b', '\u307e', '\u307f', '\u3080', '\u3081', '\u3082', '\u3084', '\u3086', '\u3088', '\u3089', '\u308a', '\u308b', '\u308c', '\u308d', '\u308f', '\u3090', '\u3091', '\u3092', '\u3093'})};
+        r0[4] = new Object[]{XResourceBundle.LANG_TRAD_ALPHABET, new CharArrayWrapper(new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'})};
+        r0[5] = new Object[]{XResourceBundle.LANG_ORIENTATION, "LeftToRight"};
+        r0[6] = new Object[]{XResourceBundle.LANG_NUMBERING, XResourceBundle.LANG_MULT_ADD};
+        r0[7] = new Object[]{XResourceBundle.MULT_ORDER, XResourceBundle.MULT_FOLLOWS};
+        Object[] objArr = new Object[2];
+        objArr[0] = XResourceBundle.LANG_NUMBERGROUPS;
+        objArr[1] = new IntArrayWrapper(new int[]{1});
+        r0[8] = objArr;
+        r0[9] = new Object[]{XResourceBundle.LANG_MULTIPLIER, new LongArrayWrapper(new long[]{Long.MAX_VALUE, Long.MAX_VALUE, 100000000, 10000, 1000, 100, 10})};
+        r0[10] = new Object[]{XResourceBundle.LANG_MULTIPLIER_CHAR, new CharArrayWrapper(new char[]{'\u4eac', '\u5146', '\u5104', '\u4e07', '\u5343', '\u767e', '\u5341'})};
+        r0[11] = new Object[]{"zero", new CharArrayWrapper(new char[0])};
+        r0[12] = new Object[]{"digits", new CharArrayWrapper(new char[]{'\u4e00', '\u4e8c', '\u4e09', '\u56db', '\u4e94', '\u516d', '\u4e03', '\u516b', '\u4e5d'})};
+        objArr = new Object[2];
+        objArr[0] = XResourceBundle.LANG_NUM_TABLES;
+        objArr[1] = new StringArrayWrapper(new String[]{"digits"});
+        r0[13] = objArr;
+        return r0;
+    }
+}

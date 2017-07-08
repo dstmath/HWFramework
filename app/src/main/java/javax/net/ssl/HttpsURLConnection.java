@@ -1,0 +1,161 @@
+package javax.net.ssl;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.security.Principal;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
+
+public abstract class HttpsURLConnection extends HttpURLConnection {
+    private static SSLSocketFactory defaultSSLSocketFactory;
+    protected HostnameVerifier hostnameVerifier;
+    private SSLSocketFactory sslSocketFactory;
+
+    private static class NoPreloadHolder {
+        public static HostnameVerifier defaultHostnameVerifier;
+        public static final Class<? extends HostnameVerifier> originalDefaultHostnameVerifierClass = null;
+
+        static {
+            /* JADX: method processing error */
+/*
+            Error: jadx.core.utils.exceptions.DecodeException: Load method exception in method: javax.net.ssl.HttpsURLConnection.NoPreloadHolder.<clinit>():void
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:113)
+	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:256)
+	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:263)
+	at jadx.core.ProcessClass.process(ProcessClass.java:34)
+	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:281)
+	at jadx.api.JavaClass.decompile(JavaClass.java:59)
+	at jadx.api.JadxDecompiler$1.run(JadxDecompiler.java:161)
+Caused by: jadx.core.utils.exceptions.DecodeException:  in method: javax.net.ssl.HttpsURLConnection.NoPreloadHolder.<clinit>():void
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:46)
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:98)
+	... 6 more
+Caused by: java.lang.IllegalArgumentException: bogus opcode: 00e9
+	at com.android.dx.io.OpcodeInfo.get(OpcodeInfo.java:1197)
+	at com.android.dx.io.OpcodeInfo.getFormat(OpcodeInfo.java:1212)
+	at com.android.dx.io.instructions.DecodedInstruction.decode(DecodedInstruction.java:72)
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:43)
+	... 7 more
+*/
+            /*
+            // Can't load method instructions.
+            */
+            throw new UnsupportedOperationException("Method not decompiled: javax.net.ssl.HttpsURLConnection.NoPreloadHolder.<clinit>():void");
+        }
+
+        private NoPreloadHolder() {
+        }
+    }
+
+    static {
+        /* JADX: method processing error */
+/*
+        Error: jadx.core.utils.exceptions.DecodeException: Load method exception in method: javax.net.ssl.HttpsURLConnection.<clinit>():void
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:113)
+	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:256)
+	at jadx.core.ProcessClass.process(ProcessClass.java:34)
+	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:281)
+	at jadx.api.JavaClass.decompile(JavaClass.java:59)
+	at jadx.api.JadxDecompiler$1.run(JadxDecompiler.java:161)
+Caused by: jadx.core.utils.exceptions.DecodeException:  in method: javax.net.ssl.HttpsURLConnection.<clinit>():void
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:46)
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:98)
+	... 5 more
+Caused by: java.lang.IllegalArgumentException: bogus opcode: 0073
+	at com.android.dx.io.OpcodeInfo.get(OpcodeInfo.java:1197)
+	at com.android.dx.io.OpcodeInfo.getFormat(OpcodeInfo.java:1212)
+	at com.android.dx.io.instructions.DecodedInstruction.decode(DecodedInstruction.java:72)
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:43)
+	... 6 more
+*/
+        /*
+        // Can't load method instructions.
+        */
+        throw new UnsupportedOperationException("Method not decompiled: javax.net.ssl.HttpsURLConnection.<clinit>():void");
+    }
+
+    public abstract String getCipherSuite();
+
+    public abstract Certificate[] getLocalCertificates();
+
+    public abstract Certificate[] getServerCertificates() throws SSLPeerUnverifiedException;
+
+    protected HttpsURLConnection(URL url) {
+        super(url);
+        this.sslSocketFactory = getDefaultSSLSocketFactory();
+    }
+
+    public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
+        return ((X509Certificate) getServerCertificates()[0]).getSubjectX500Principal();
+    }
+
+    public Principal getLocalPrincipal() {
+        Certificate[] certs = getLocalCertificates();
+        if (certs != null) {
+            return ((X509Certificate) certs[0]).getSubjectX500Principal();
+        }
+        return null;
+    }
+
+    public static void setDefaultHostnameVerifier(HostnameVerifier v) {
+        if (v == null) {
+            throw new IllegalArgumentException("no default HostnameVerifier specified");
+        }
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) {
+            sm.checkPermission(new SSLPermission("setHostnameVerifier"));
+        }
+        NoPreloadHolder.defaultHostnameVerifier = v;
+    }
+
+    public static HostnameVerifier getDefaultHostnameVerifier() {
+        return NoPreloadHolder.defaultHostnameVerifier;
+    }
+
+    public void setHostnameVerifier(HostnameVerifier v) {
+        if (v == null) {
+            throw new IllegalArgumentException("no HostnameVerifier specified");
+        }
+        this.hostnameVerifier = v;
+    }
+
+    public HostnameVerifier getHostnameVerifier() {
+        if (this.hostnameVerifier == null) {
+            this.hostnameVerifier = NoPreloadHolder.defaultHostnameVerifier;
+        }
+        return this.hostnameVerifier;
+    }
+
+    public static void setDefaultSSLSocketFactory(SSLSocketFactory sf) {
+        if (sf == null) {
+            throw new IllegalArgumentException("no default SSLSocketFactory specified");
+        }
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) {
+            sm.checkSetFactory();
+        }
+        defaultSSLSocketFactory = sf;
+    }
+
+    public static SSLSocketFactory getDefaultSSLSocketFactory() {
+        if (defaultSSLSocketFactory == null) {
+            defaultSSLSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+        }
+        return defaultSSLSocketFactory;
+    }
+
+    public void setSSLSocketFactory(SSLSocketFactory sf) {
+        if (sf == null) {
+            throw new IllegalArgumentException("no SSLSocketFactory specified");
+        }
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) {
+            sm.checkSetFactory();
+        }
+        this.sslSocketFactory = sf;
+    }
+
+    public SSLSocketFactory getSSLSocketFactory() {
+        return this.sslSocketFactory;
+    }
+}

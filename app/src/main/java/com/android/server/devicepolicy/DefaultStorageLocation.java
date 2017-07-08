@@ -1,0 +1,39 @@
+package com.android.server.devicepolicy;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.SystemProperties;
+
+public class DefaultStorageLocation {
+    private static final String INTERNAL = "0";
+    private static final String PRIMARYSD = "persist.sys.primarysd";
+    private static final String SDCARD = "1";
+
+    public static boolean isSdcard() {
+        return SystemProperties.get(PRIMARYSD, INTERNAL).equals(SDCARD);
+    }
+
+    public static boolean isInternal() {
+        return SystemProperties.get(PRIMARYSD, INTERNAL).equals(INTERNAL);
+    }
+
+    public static void switchVolume(Context context) {
+        if (isSdcard()) {
+            switchVolume(context, INTERNAL);
+        } else {
+            switchVolume(context, SDCARD);
+        }
+    }
+
+    private static void switchVolume(Context context, String value) {
+        SystemProperties.set(PRIMARYSD, value);
+        Intent reboot = new Intent("android.intent.action.REBOOT");
+        reboot.putExtra("android.intent.extra.KEY_CONFIRM", false);
+        reboot.setFlags(268435456);
+        context.startActivity(reboot);
+    }
+
+    public static void switchToInternal(Context context) {
+        switchVolume(context, INTERNAL);
+    }
+}

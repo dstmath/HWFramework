@@ -1,0 +1,73 @@
+package com.huawei.device.connectivitychrlog;
+
+public class CSegEVENT_WIFI_SCAN_FAILED extends ChrLogBaseEventModel {
+    public ENCEventId enEventId;
+    public ENCSCAN_FAILED enSCAN_FAILED;
+    public ENCucHwStatus enucHwStatus;
+    public LogString strSTA_MAC;
+    public LogDate tmTimeStamp;
+    public LogByte ucBTConnState;
+    public LogByte ucBTState;
+    public LogByte ucCardIndex;
+    public LogByte ucIsMobleAP;
+    public LogByte ucIsOnScreen;
+    public LogByte ucScanAlwaysAvailble;
+    public LogByte ucWIFIAlwaysNotifation;
+    public LogByte ucWIFISleepPolicy;
+    public LogByte ucWifiProStatus;
+    public LogShort usLen;
+    public LogShort usSubErrorCode;
+
+    public CSegEVENT_WIFI_SCAN_FAILED() {
+        this.enEventId = new ENCEventId();
+        this.usLen = new LogShort();
+        this.tmTimeStamp = new LogDate(6);
+        this.ucCardIndex = new LogByte();
+        this.enSCAN_FAILED = new ENCSCAN_FAILED();
+        this.usSubErrorCode = new LogShort();
+        this.strSTA_MAC = new LogString(17);
+        this.enucHwStatus = new ENCucHwStatus();
+        this.ucBTState = new LogByte();
+        this.ucBTConnState = new LogByte();
+        this.ucScanAlwaysAvailble = new LogByte();
+        this.ucWIFIAlwaysNotifation = new LogByte();
+        this.ucWIFISleepPolicy = new LogByte();
+        this.ucWifiProStatus = new LogByte();
+        this.ucIsMobleAP = new LogByte();
+        this.ucIsOnScreen = new LogByte();
+        this.lengthMap.put("enEventId", Integer.valueOf(1));
+        this.fieldMap.put("enEventId", this.enEventId);
+        this.lengthMap.put("usLen", Integer.valueOf(2));
+        this.fieldMap.put("usLen", this.usLen);
+        this.lengthMap.put("tmTimeStamp", Integer.valueOf(6));
+        this.fieldMap.put("tmTimeStamp", this.tmTimeStamp);
+        this.lengthMap.put("ucCardIndex", Integer.valueOf(1));
+        this.fieldMap.put("ucCardIndex", this.ucCardIndex);
+        this.lengthMap.put("enSCAN_FAILED", Integer.valueOf(1));
+        this.fieldMap.put("enSCAN_FAILED", this.enSCAN_FAILED);
+        this.lengthMap.put("usSubErrorCode", Integer.valueOf(2));
+        this.fieldMap.put("usSubErrorCode", this.usSubErrorCode);
+        this.lengthMap.put("strSTA_MAC", Integer.valueOf(17));
+        this.fieldMap.put("strSTA_MAC", this.strSTA_MAC);
+        this.lengthMap.put("enucHwStatus", Integer.valueOf(1));
+        this.fieldMap.put("enucHwStatus", this.enucHwStatus);
+        this.lengthMap.put("ucBTState", Integer.valueOf(1));
+        this.fieldMap.put("ucBTState", this.ucBTState);
+        this.lengthMap.put("ucBTConnState", Integer.valueOf(1));
+        this.fieldMap.put("ucBTConnState", this.ucBTConnState);
+        this.lengthMap.put("ucScanAlwaysAvailble", Integer.valueOf(1));
+        this.fieldMap.put("ucScanAlwaysAvailble", this.ucScanAlwaysAvailble);
+        this.lengthMap.put("ucWIFIAlwaysNotifation", Integer.valueOf(1));
+        this.fieldMap.put("ucWIFIAlwaysNotifation", this.ucWIFIAlwaysNotifation);
+        this.lengthMap.put("ucWIFISleepPolicy", Integer.valueOf(1));
+        this.fieldMap.put("ucWIFISleepPolicy", this.ucWIFISleepPolicy);
+        this.lengthMap.put("ucWifiProStatus", Integer.valueOf(1));
+        this.fieldMap.put("ucWifiProStatus", this.ucWifiProStatus);
+        this.lengthMap.put("ucIsMobleAP", Integer.valueOf(1));
+        this.fieldMap.put("ucIsMobleAP", this.ucIsMobleAP);
+        this.lengthMap.put("ucIsOnScreen", Integer.valueOf(1));
+        this.fieldMap.put("ucIsOnScreen", this.ucIsOnScreen);
+        this.enEventId.setValue("WIFI_SCAN_FAILED");
+        this.usLen.setValue(getTotalLen());
+    }
+}

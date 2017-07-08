@@ -1,0 +1,96 @@
+package tmsdkobf;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.Parcelable.Creator;
+
+/* compiled from: Unknown */
+public class gt implements Parcelable {
+    public static Creator<gt> CREATOR;
+    private int nt;
+    private String pq;
+    private fy pr;
+    public boolean ps;
+    private long size;
+    private int status;
+
+    static {
+        /* JADX: method processing error */
+/*
+        Error: jadx.core.utils.exceptions.DecodeException: Load method exception in method: tmsdkobf.gt.<clinit>():void
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:113)
+	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:256)
+	at jadx.core.ProcessClass.process(ProcessClass.java:34)
+	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:281)
+	at jadx.api.JavaClass.decompile(JavaClass.java:59)
+	at jadx.api.JadxDecompiler$1.run(JadxDecompiler.java:161)
+Caused by: jadx.core.utils.exceptions.DecodeException:  in method: tmsdkobf.gt.<clinit>():void
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:46)
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:98)
+	... 5 more
+Caused by: java.lang.IllegalArgumentException: bogus opcode: 0073
+	at com.android.dx.io.OpcodeInfo.get(OpcodeInfo.java:1197)
+	at com.android.dx.io.OpcodeInfo.getFormat(OpcodeInfo.java:1212)
+	at com.android.dx.io.instructions.DecodedInstruction.decode(DecodedInstruction.java:72)
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:43)
+	... 6 more
+*/
+        /*
+        // Can't load method instructions.
+        */
+        throw new UnsupportedOperationException("Method not decompiled: tmsdkobf.gt.<clinit>():void");
+    }
+
+    public gt() {
+        this.status = 0;
+        this.nt = -1;
+        this.ps = false;
+    }
+
+    public void aS(String str) {
+        this.pq = str;
+    }
+
+    public String aZ() {
+        return this.pq;
+    }
+
+    public int al() {
+        return this.nt;
+    }
+
+    public void an(int i) {
+        this.nt = i;
+    }
+
+    public void b(fy fyVar) {
+        this.pr = fyVar;
+    }
+
+    public fy ba() {
+        return this.pr;
+    }
+
+    public int describeContents() {
+        return 4;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public void setSize(long j) {
+        this.size = j;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(this.status);
+        parcel.writeInt(this.nt);
+        parcel.writeString(this.pq);
+        parcel.writeLong(this.size);
+    }
+}

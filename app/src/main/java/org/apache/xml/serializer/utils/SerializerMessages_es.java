@@ -1,0 +1,70 @@
+package org.apache.xml.serializer.utils;
+
+import java.util.ListResourceBundle;
+import org.apache.xpath.res.XPATHErrorResources;
+
+public class SerializerMessages_es extends ListResourceBundle {
+    public Object[][] getContents() {
+        contents = new Object[59][];
+        contents[0] = new Object[]{MsgKey.BAD_MSGKEY, "La clave de mensaje ''{0}'' no est\u00e1 en la clase de mensaje ''{1}''"};
+        contents[1] = new Object[]{MsgKey.BAD_MSGFORMAT, "Se ha producido un error en el formato de mensaje ''{0}'' de la clase de mensaje ''{1}''."};
+        contents[2] = new Object[]{MsgKey.ER_SERIALIZER_NOT_CONTENTHANDLER, "La clase serializer ''{0}'' no implementa org.xml.sax.ContentHandler."};
+        contents[3] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_FIND, "No se ha podido encontrar el recurso [ {0} ].\n {1}"};
+        contents[4] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_LOAD, "No se ha podido cargar el recurso [ {0} ]: {1} \n {2} \t {3}"};
+        contents[5] = new Object[]{MsgKey.ER_BUFFER_SIZE_LESSTHAN_ZERO, "Tama\u00f1o de almacenamiento intermedio <=0"};
+        contents[6] = new Object[]{XPATHErrorResources.ER_INVALID_UTF16_SURROGATE, "\u00bfSe ha detectado un sustituto UTF-16 no v\u00e1lido: {0}?"};
+        contents[7] = new Object[]{XPATHErrorResources.ER_OIERROR, "Error de ES"};
+        contents[8] = new Object[]{MsgKey.ER_ILLEGAL_ATTRIBUTE_POSITION, "No se puede a\u00f1adir el atributo {0} despu\u00e9s de nodos hijo o antes de que se produzca un elemento.  Se ignorar\u00e1 el atributo."};
+        contents[9] = new Object[]{MsgKey.ER_NAMESPACE_PREFIX, "No se ha declarado el espacio de nombres para el prefijo ''{0}''."};
+        contents[10] = new Object[]{MsgKey.ER_STRAY_ATTRIBUTE, "Atributo ''{0}'' fuera del elemento."};
+        contents[11] = new Object[]{MsgKey.ER_STRAY_NAMESPACE, "Declaraci\u00f3n del espacio de nombres ''{0}''=''{1}'' fuera del elemento."};
+        contents[12] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_RESOURCE, "No se ha podido cargar ''{0}'' (compruebe la CLASSPATH), ahora s\u00f3lo se est\u00e1n utilizando los valores predeterminados"};
+        contents[13] = new Object[]{MsgKey.ER_ILLEGAL_CHARACTER, "Se ha intentado dar salida a un car\u00e1cter del valor integral {0} que no est\u00e1 representado en la codificaci\u00f3n de salida especificada de {1}."};
+        contents[14] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_METHOD_PROPERTY, "No se ha podido cargar el archivo de propiedades ''{0}'' para el m\u00e9todo de salida ''{1}'' (compruebe la CLASSPATH)"};
+        contents[15] = new Object[]{MsgKey.ER_INVALID_PORT, "N\u00famero de puerto no v\u00e1lido"};
+        contents[16] = new Object[]{MsgKey.ER_PORT_WHEN_HOST_NULL, "No se puede establecer el puerto si el sistema principal es nulo"};
+        contents[17] = new Object[]{MsgKey.ER_HOST_ADDRESS_NOT_WELLFORMED, "El sistema principal no es una direcci\u00f3n bien formada"};
+        contents[18] = new Object[]{MsgKey.ER_SCHEME_NOT_CONFORMANT, "El esquema no es compatible."};
+        contents[19] = new Object[]{MsgKey.ER_SCHEME_FROM_NULL_STRING, "No se puede establecer un esquema de una serie nula"};
+        contents[20] = new Object[]{MsgKey.ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE, "La v\u00eda de acceso contiene una secuencia de escape no v\u00e1lida"};
+        contents[21] = new Object[]{MsgKey.ER_PATH_INVALID_CHAR, "La v\u00eda de acceso contiene un car\u00e1cter no v\u00e1lido: {0}"};
+        contents[22] = new Object[]{MsgKey.ER_FRAG_INVALID_CHAR, "El fragmento contiene un car\u00e1cter no v\u00e1lido"};
+        contents[23] = new Object[]{MsgKey.ER_FRAG_WHEN_PATH_NULL, "No se puede establecer el fragmento si la v\u00eda de acceso es nula"};
+        contents[24] = new Object[]{MsgKey.ER_FRAG_FOR_GENERIC_URI, "S\u00f3lo se puede establecer el fragmento para un URI gen\u00e9rico"};
+        contents[25] = new Object[]{MsgKey.ER_NO_SCHEME_IN_URI, "No se ha encontrado un esquema en el URI"};
+        contents[26] = new Object[]{MsgKey.ER_CANNOT_INIT_URI_EMPTY_PARMS, "No se puede inicializar el URI con par\u00e1metros vac\u00edos"};
+        contents[27] = new Object[]{MsgKey.ER_NO_FRAGMENT_STRING_IN_PATH, "No se puede especificar el fragmento en la v\u00eda de acceso y en el fragmento"};
+        contents[28] = new Object[]{MsgKey.ER_NO_QUERY_STRING_IN_PATH, "No se puede especificar la serie de consulta en la v\u00eda de acceso y en la serie de consulta"};
+        contents[29] = new Object[]{MsgKey.ER_NO_PORT_IF_NO_HOST, "No se puede especificar el puerto si no se ha especificado el sistema principal"};
+        contents[30] = new Object[]{MsgKey.ER_NO_USERINFO_IF_NO_HOST, "No se puede especificar la informaci\u00f3n de usuario si no se ha especificado el sistema principal"};
+        contents[31] = new Object[]{MsgKey.ER_XML_VERSION_NOT_SUPPORTED, "Aviso: la versi\u00f3n del documento de salida tiene que ser ''{0}''.  No se admite esta versi\u00f3n de XML.  La versi\u00f3n del documento de salida ser\u00e1 ''1.0''."};
+        contents[32] = new Object[]{MsgKey.ER_SCHEME_REQUIRED, "\u00a1Se necesita un esquema!"};
+        contents[33] = new Object[]{MsgKey.ER_FACTORY_PROPERTY_MISSING, "El objeto Properties pasado a SerializerFactory no tiene una propiedad ''{0}''."};
+        contents[34] = new Object[]{MsgKey.ER_ENCODING_NOT_SUPPORTED, "Aviso: La codificaci\u00f3n ''{0}'' no est\u00e1 soportada por Java Runtime."};
+        contents[35] = new Object[]{MsgKey.ER_FEATURE_NOT_FOUND, "El par\u00e1metro ''{0}'' no se reconoce."};
+        contents[36] = new Object[]{MsgKey.ER_FEATURE_NOT_SUPPORTED, "Se reconoce el par\u00e1metro ''{0}'' pero no puede establecerse el valor solicitado."};
+        contents[37] = new Object[]{MsgKey.ER_STRING_TOO_LONG, "La serie producida es demasiado larga para ajustarse a DOMString: ''{0}''."};
+        contents[38] = new Object[]{MsgKey.ER_TYPE_MISMATCH_ERR, "El tipo de valor para este nombre de par\u00e1metro es incompatible con el tipo de valor esperado."};
+        contents[39] = new Object[]{MsgKey.ER_NO_OUTPUT_SPECIFIED, "El destino de salida de escritura de los datos es nulo."};
+        contents[40] = new Object[]{MsgKey.ER_UNSUPPORTED_ENCODING, "Se ha encontrado una codificaci\u00f3n no soportada."};
+        contents[41] = new Object[]{MsgKey.ER_UNABLE_TO_SERIALIZE_NODE, "No se ha podido serializar el nodo."};
+        contents[42] = new Object[]{MsgKey.ER_CDATA_SECTIONS_SPLIT, "La secci\u00f3n CDATA contiene uno o m\u00e1s marcadores ']]>' de terminaci\u00f3n."};
+        contents[43] = new Object[]{MsgKey.ER_WARNING_WF_NOT_CHECKED, "No se ha podido crear una instancia del comprobador de gram\u00e1tica correcta.  El par\u00e1metro well-formed se ha establecido en true pero no se puede realizar la comprobaci\u00f3n de gram\u00e1tica correcta."};
+        contents[44] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER, "El nodo ''{0}'' contiene caracteres XML no v\u00e1lidos."};
+        contents[45] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_COMMENT, "Se ha encontrado un car\u00e1cter XML no v\u00e1lido (Unicode: 0x{0}) en el comentario."};
+        contents[46] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_PI, "Se ha encontrado un car\u00e1cter XML no v\u00e1lido (Unicode: 0x{0}) en los datos de la instrucci\u00f3n de proceso."};
+        contents[47] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_CDATA, "Se ha encontrado un car\u00e1cter XML no v\u00e1lido (Unicode: 0x{0}) en el contenido de CDATASection."};
+        contents[48] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_TEXT, "Se ha encontrado un car\u00e1cter XML no v\u00e1lido (Unicode: 0x{0}) en el contenido de datos de caracteres del nodo."};
+        contents[49] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_NODE_NAME, "Se ha encontrado un car\u00e1cter o caracteres XML no v\u00e1lidos en el nodo {0} denominado ''{1}''."};
+        contents[50] = new Object[]{MsgKey.ER_WF_DASH_IN_COMMENT, "No se permite la serie \"--\" dentro de los comentarios."};
+        contents[51] = new Object[]{MsgKey.ER_WF_LT_IN_ATTVAL, "El valor del atributo \"{1}\" asociado a un tipo de elemento \"{0}\" no debe contener el car\u00e1cter ''''<''''."};
+        contents[52] = new Object[]{MsgKey.ER_WF_REF_TO_UNPARSED_ENT, "No se permite la referencia de entidad no analizada \"&{0};\"."};
+        contents[53] = new Object[]{MsgKey.ER_WF_REF_TO_EXTERNAL_ENT, "La referencia de entidad externa \"&{0};\" no est\u00e1 permitida en un valor de atributo."};
+        contents[54] = new Object[]{MsgKey.ER_NS_PREFIX_CANNOT_BE_BOUND, "No se puede encontrar el prefijo \"{0}\" en el espacio de nombres \"{1}\"."};
+        contents[55] = new Object[]{MsgKey.ER_NULL_LOCAL_ELEMENT_NAME, "El nombre local del elemento \"{0}\" es null."};
+        contents[56] = new Object[]{MsgKey.ER_NULL_LOCAL_ATTR_NAME, "El nombre local del atributo \"{0}\" es null."};
+        contents[57] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "El texto de sustituci\u00f3n del nodo de entidad \"{0}\" contiene un nodo de elemento \"{1}\" con un prefijo no enlazado \"{2}\"."};
+        contents[58] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "El texto de sustituci\u00f3n del nodo de entidad \"{0}\" contiene un nodo de atributo \"{1}\" con un prefijo no enlazado \"{2}\"."};
+        return contents;
+    }
+}

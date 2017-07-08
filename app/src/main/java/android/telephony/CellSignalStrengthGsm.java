@@ -1,0 +1,166 @@
+package android.telephony;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.Parcelable.Creator;
+import com.android.internal.os.HwBootFail;
+
+public final class CellSignalStrengthGsm extends CellSignalStrength implements Parcelable {
+    public static final Creator<CellSignalStrengthGsm> CREATOR = null;
+    private static final boolean DBG = false;
+    private static final int GSM_SIGNAL_STRENGTH_GOOD = 8;
+    private static final int GSM_SIGNAL_STRENGTH_GREAT = 12;
+    private static final int GSM_SIGNAL_STRENGTH_MODERATE = 5;
+    private static final String LOG_TAG = "CellSignalStrengthGsm";
+    private int mBitErrorRate;
+    private int mSignalStrength;
+    private int mTimingAdvance;
+
+    static {
+        /* JADX: method processing error */
+/*
+        Error: jadx.core.utils.exceptions.DecodeException: Load method exception in method: android.telephony.CellSignalStrengthGsm.<clinit>():void
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:113)
+	at jadx.core.dex.nodes.ClassNode.load(ClassNode.java:256)
+	at jadx.core.ProcessClass.process(ProcessClass.java:34)
+	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:59)
+	at jadx.core.ProcessClass.process(ProcessClass.java:42)
+	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:281)
+	at jadx.api.JavaClass.decompile(JavaClass.java:59)
+	at jadx.api.JadxDecompiler$1.run(JadxDecompiler.java:161)
+Caused by: jadx.core.utils.exceptions.DecodeException:  in method: android.telephony.CellSignalStrengthGsm.<clinit>():void
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:46)
+	at jadx.core.dex.nodes.MethodNode.load(MethodNode.java:98)
+	... 7 more
+Caused by: java.lang.IllegalArgumentException: bogus opcode: 0073
+	at com.android.dx.io.OpcodeInfo.get(OpcodeInfo.java:1197)
+	at com.android.dx.io.OpcodeInfo.getFormat(OpcodeInfo.java:1212)
+	at com.android.dx.io.instructions.DecodedInstruction.decode(DecodedInstruction.java:72)
+	at jadx.core.dex.instructions.InsnDecoder.decodeInsns(InsnDecoder.java:43)
+	... 8 more
+*/
+        /*
+        // Can't load method instructions.
+        */
+        throw new UnsupportedOperationException("Method not decompiled: android.telephony.CellSignalStrengthGsm.<clinit>():void");
+    }
+
+    public CellSignalStrengthGsm() {
+        setDefaultValues();
+    }
+
+    public CellSignalStrengthGsm(int ss, int ber) {
+        initialize(ss, ber);
+    }
+
+    public CellSignalStrengthGsm(CellSignalStrengthGsm s) {
+        copyFrom(s);
+    }
+
+    public void initialize(int ss, int ber) {
+        this.mSignalStrength = ss;
+        this.mBitErrorRate = ber;
+        this.mTimingAdvance = HwBootFail.STAGE_BOOT_SUCCESS;
+    }
+
+    public void initialize(int ss, int ber, int ta) {
+        this.mSignalStrength = ss;
+        this.mBitErrorRate = ber;
+        this.mTimingAdvance = ta;
+    }
+
+    protected void copyFrom(CellSignalStrengthGsm s) {
+        this.mSignalStrength = s.mSignalStrength;
+        this.mBitErrorRate = s.mBitErrorRate;
+        this.mTimingAdvance = s.mTimingAdvance;
+    }
+
+    public CellSignalStrengthGsm copy() {
+        return new CellSignalStrengthGsm(this);
+    }
+
+    public void setDefaultValues() {
+        this.mSignalStrength = HwBootFail.STAGE_BOOT_SUCCESS;
+        this.mBitErrorRate = HwBootFail.STAGE_BOOT_SUCCESS;
+        this.mTimingAdvance = HwBootFail.STAGE_BOOT_SUCCESS;
+    }
+
+    public int getLevel() {
+        int asu = this.mSignalStrength;
+        if (asu <= 2 || asu == 99) {
+            return 0;
+        }
+        if (asu >= GSM_SIGNAL_STRENGTH_GREAT) {
+            return 4;
+        }
+        if (asu >= GSM_SIGNAL_STRENGTH_GOOD) {
+            return 3;
+        }
+        if (asu >= GSM_SIGNAL_STRENGTH_MODERATE) {
+            return 2;
+        }
+        return 1;
+    }
+
+    public int getDbm() {
+        int asu;
+        int level = this.mSignalStrength;
+        if (level == 99) {
+            asu = HwBootFail.STAGE_BOOT_SUCCESS;
+        } else {
+            asu = level;
+        }
+        if (asu != HwBootFail.STAGE_BOOT_SUCCESS) {
+            return (asu * 2) - 113;
+        }
+        return HwBootFail.STAGE_BOOT_SUCCESS;
+    }
+
+    public int getAsuLevel() {
+        return this.mSignalStrength;
+    }
+
+    public int hashCode() {
+        return (this.mSignalStrength * 31) + (this.mBitErrorRate * 31);
+    }
+
+    public boolean equals(Object o) {
+        boolean z = DBG;
+        try {
+            CellSignalStrengthGsm s = (CellSignalStrengthGsm) o;
+            if (o == null) {
+                return DBG;
+            }
+            if (this.mSignalStrength == s.mSignalStrength && this.mBitErrorRate == s.mBitErrorRate && s.mTimingAdvance == this.mTimingAdvance) {
+                z = true;
+            }
+            return z;
+        } catch (ClassCastException e) {
+            return DBG;
+        }
+    }
+
+    public String toString() {
+        return "CellSignalStrengthGsm: ss=" + this.mSignalStrength + " ber=" + this.mBitErrorRate + " mTa=" + this.mTimingAdvance;
+    }
+
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.mSignalStrength);
+        dest.writeInt(this.mBitErrorRate);
+        dest.writeInt(this.mTimingAdvance);
+    }
+
+    private CellSignalStrengthGsm(Parcel in) {
+        this.mSignalStrength = in.readInt();
+        this.mBitErrorRate = in.readInt();
+        this.mTimingAdvance = in.readInt();
+    }
+
+    public int describeContents() {
+        return 0;
+    }
+
+    private static void log(String s) {
+        Rlog.w(LOG_TAG, s);
+    }
+}

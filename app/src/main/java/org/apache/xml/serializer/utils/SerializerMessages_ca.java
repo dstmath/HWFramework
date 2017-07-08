@@ -1,0 +1,70 @@
+package org.apache.xml.serializer.utils;
+
+import java.util.ListResourceBundle;
+import org.apache.xpath.res.XPATHErrorResources;
+
+public class SerializerMessages_ca extends ListResourceBundle {
+    public Object[][] getContents() {
+        contents = new Object[59][];
+        contents[0] = new Object[]{MsgKey.BAD_MSGKEY, "La clau del missatge ''{0}'' no est\u00e0 a la classe del missatge ''{1}''"};
+        contents[1] = new Object[]{MsgKey.BAD_MSGFORMAT, "El format del missatge ''{0}'' a la classe del missatge ''{1}'' ha fallat."};
+        contents[2] = new Object[]{MsgKey.ER_SERIALIZER_NOT_CONTENTHANDLER, "La classe de serialitzador ''{0}'' no implementa org.xml.sax.ContentHandler."};
+        contents[3] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_FIND, "No s''ha trobat el recurs [ {0} ].\n {1}"};
+        contents[4] = new Object[]{MsgKey.ER_RESOURCE_COULD_NOT_LOAD, "No s''ha pogut carregar el recurs [ {0} ]: {1} \n {2} \t {3}"};
+        contents[5] = new Object[]{MsgKey.ER_BUFFER_SIZE_LESSTHAN_ZERO, "Grand\u00e0ria del buffer <=0"};
+        contents[6] = new Object[]{XPATHErrorResources.ER_INVALID_UTF16_SURROGATE, "S''ha detectat un suplent UTF-16 no v\u00e0lid: {0} ?"};
+        contents[7] = new Object[]{XPATHErrorResources.ER_OIERROR, "Error d'E/S"};
+        contents[8] = new Object[]{MsgKey.ER_ILLEGAL_ATTRIBUTE_POSITION, "No es pot afegir l''atribut {0} despr\u00e9s dels nodes subordinats o abans que es produeixi un element. Es passar\u00e0 per alt l''atribut."};
+        contents[9] = new Object[]{MsgKey.ER_NAMESPACE_PREFIX, "No s''ha declarat l''espai de noms pel prefix ''{0}''."};
+        contents[10] = new Object[]{MsgKey.ER_STRAY_ATTRIBUTE, "L''atribut ''{0}'' es troba fora de l''element."};
+        contents[11] = new Object[]{MsgKey.ER_STRAY_NAMESPACE, "La declaraci\u00f3 de l''espai de noms ''{0}''=''{1}'' es troba fora de l''element."};
+        contents[12] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_RESOURCE, "No s''ha pogut carregar ''{0}'' (comproveu CLASSPATH), ara s''est\u00e0 fent servir els valors per defecte."};
+        contents[13] = new Object[]{MsgKey.ER_ILLEGAL_CHARACTER, "S''ha intentat un car\u00e0cter de sortida del valor integral {0} que no est\u00e0 representat a una codificaci\u00f3 de sortida especificada de {1}."};
+        contents[14] = new Object[]{MsgKey.ER_COULD_NOT_LOAD_METHOD_PROPERTY, "No s''ha pogut carregar el fitxer de propietats ''{0}'' del m\u00e8tode de sortida ''{1}'' (comproveu CLASSPATH)"};
+        contents[15] = new Object[]{MsgKey.ER_INVALID_PORT, "N\u00famero de port no v\u00e0lid"};
+        contents[16] = new Object[]{MsgKey.ER_PORT_WHEN_HOST_NULL, "El port no es pot establir quan el sistema principal \u00e9s nul"};
+        contents[17] = new Object[]{MsgKey.ER_HOST_ADDRESS_NOT_WELLFORMED, "El format de l'adre\u00e7a del sistema principal no \u00e9s el correcte"};
+        contents[18] = new Object[]{MsgKey.ER_SCHEME_NOT_CONFORMANT, "L'esquema no t\u00e9 conformitat."};
+        contents[19] = new Object[]{MsgKey.ER_SCHEME_FROM_NULL_STRING, "No es pot establir un esquema des d'una cadena nul\u00b7la"};
+        contents[20] = new Object[]{MsgKey.ER_PATH_CONTAINS_INVALID_ESCAPE_SEQUENCE, "La via d'acc\u00e9s cont\u00e9 una seq\u00fc\u00e8ncia d'escapament no v\u00e0lida"};
+        contents[21] = new Object[]{MsgKey.ER_PATH_INVALID_CHAR, "La via d''acc\u00e9s cont\u00e9 un car\u00e0cter no v\u00e0lid {0}"};
+        contents[22] = new Object[]{MsgKey.ER_FRAG_INVALID_CHAR, "El fragment cont\u00e9 un car\u00e0cter no v\u00e0lid"};
+        contents[23] = new Object[]{MsgKey.ER_FRAG_WHEN_PATH_NULL, "El fragment no es pot establir si la via d'acc\u00e9s \u00e9s nul\u00b7la"};
+        contents[24] = new Object[]{MsgKey.ER_FRAG_FOR_GENERIC_URI, "El fragment nom\u00e9s es pot establir per a un URI gen\u00e8ric"};
+        contents[25] = new Object[]{MsgKey.ER_NO_SCHEME_IN_URI, "No s'ha trobat cap esquema a l'URI"};
+        contents[26] = new Object[]{MsgKey.ER_CANNOT_INIT_URI_EMPTY_PARMS, "No es pot inicialitzar l'URI amb par\u00e0metres buits"};
+        contents[27] = new Object[]{MsgKey.ER_NO_FRAGMENT_STRING_IN_PATH, "No es pot especificar un fragment tant en la via d'acc\u00e9s com en el fragment"};
+        contents[28] = new Object[]{MsgKey.ER_NO_QUERY_STRING_IN_PATH, "No es pot especificar una cadena de consulta en la via d'acc\u00e9s i la cadena de consulta"};
+        contents[29] = new Object[]{MsgKey.ER_NO_PORT_IF_NO_HOST, "No es pot especificar el port si no s'especifica el sistema principal"};
+        contents[30] = new Object[]{MsgKey.ER_NO_USERINFO_IF_NO_HOST, "No es pot especificar informaci\u00f3 de l'usuari si no s'especifica el sistema principal"};
+        contents[31] = new Object[]{MsgKey.ER_XML_VERSION_NOT_SUPPORTED, "Av\u00eds: la versi\u00f3 del document de sortida s''ha sol\u00b7licitat que sigui ''{0}''. Aquesta versi\u00f3 de XML no est\u00e0 suportada. La versi\u00f3 del document de sortida ser\u00e0 ''1.0''."};
+        contents[32] = new Object[]{MsgKey.ER_SCHEME_REQUIRED, "Es necessita l'esquema"};
+        contents[33] = new Object[]{MsgKey.ER_FACTORY_PROPERTY_MISSING, "L''objecte de propietats passat a SerializerFactory no t\u00e9 cap propietat ''{0}''."};
+        contents[34] = new Object[]{MsgKey.ER_ENCODING_NOT_SUPPORTED, "Av\u00eds: el temps d''execuci\u00f3 de Java no d\u00f3na suport a la codificaci\u00f3 ''{0}''."};
+        contents[35] = new Object[]{MsgKey.ER_FEATURE_NOT_FOUND, "El par\u00e0metre ''{0}'' no es reconeix."};
+        contents[36] = new Object[]{MsgKey.ER_FEATURE_NOT_SUPPORTED, "El par\u00e0metre ''{0}'' es reconeix per\u00f2 el valor sol\u00b7licitat no es pot establir."};
+        contents[37] = new Object[]{MsgKey.ER_STRING_TOO_LONG, "La cadena resultant \u00e9s massa llarga per cabre en una DOMString: ''{0}''."};
+        contents[38] = new Object[]{MsgKey.ER_TYPE_MISMATCH_ERR, "El tipus de valor per a aquest nom de par\u00e0metre \u00e9s incompatible amb el tipus de valor esperat."};
+        contents[39] = new Object[]{MsgKey.ER_NO_OUTPUT_SPECIFIED, "La destinaci\u00f3 de sortida per a les dades que s'ha d'escriure era nul\u00b7la."};
+        contents[40] = new Object[]{MsgKey.ER_UNSUPPORTED_ENCODING, "S'ha trobat una codificaci\u00f3 no suportada."};
+        contents[41] = new Object[]{MsgKey.ER_UNABLE_TO_SERIALIZE_NODE, "El node no s'ha pogut serialitzat."};
+        contents[42] = new Object[]{MsgKey.ER_CDATA_SECTIONS_SPLIT, "La secci\u00f3 CDATA cont\u00e9 un o m\u00e9s marcadors d'acabament ']]>'."};
+        contents[43] = new Object[]{MsgKey.ER_WARNING_WF_NOT_CHECKED, "No s'ha pogut crear cap inst\u00e0ncia per comprovar si t\u00e9 un format correcte o no. El par\u00e0metre del tipus ben format es va establir en cert, per\u00f2 la comprovaci\u00f3 de format no s'ha pogut realitzar."};
+        contents[44] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER, "El node ''{0}'' cont\u00e9 car\u00e0cters XML no v\u00e0lids."};
+        contents[45] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_COMMENT, "S''ha trobat un car\u00e0cter XML no v\u00e0lid (Unicode: 0x{0}) en el comentari."};
+        contents[46] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_PI, "S''ha trobat un car\u00e0cter XML no v\u00e0lid (Unicode: 0x{0}) en les dades d''instrucci\u00f3 de proc\u00e9s."};
+        contents[47] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_CDATA, "S''ha trobat un car\u00e0cter XML no v\u00e0lid (Unicode: 0x''{0})'' en els continguts de la CDATASection."};
+        contents[48] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_TEXT, "S''ha trobat un car\u00e0cter XML no v\u00e0lid (Unicode: 0x''{0})'' en el contingut de dades de car\u00e0cter del node."};
+        contents[49] = new Object[]{MsgKey.ER_WF_INVALID_CHARACTER_IN_NODE_NAME, "S''han trobat car\u00e0cters XML no v\u00e0lids al node {0} anomenat ''{1}''."};
+        contents[50] = new Object[]{MsgKey.ER_WF_DASH_IN_COMMENT, "La cadena \"--\" no est\u00e0 permesa dins dels comentaris."};
+        contents[51] = new Object[]{MsgKey.ER_WF_LT_IN_ATTVAL, "El valor d''atribut \"{1}\" associat amb un tipus d''element \"{0}\" no pot contenir el car\u00e0cter ''<''."};
+        contents[52] = new Object[]{MsgKey.ER_WF_REF_TO_UNPARSED_ENT, "La refer\u00e8ncia de l''entitat no analitzada \"&{0};\" no est\u00e0 permesa."};
+        contents[53] = new Object[]{MsgKey.ER_WF_REF_TO_EXTERNAL_ENT, "La refer\u00e8ncia externa de l''entitat \"&{0};\" no est\u00e0 permesa en un valor d''atribut."};
+        contents[54] = new Object[]{MsgKey.ER_NS_PREFIX_CANNOT_BE_BOUND, "El prefix \"{0}\" no es pot vincular a l''espai de noms \"{1}\"."};
+        contents[55] = new Object[]{MsgKey.ER_NULL_LOCAL_ELEMENT_NAME, "El nom local de l''element \"{0}\" \u00e9s nul."};
+        contents[56] = new Object[]{MsgKey.ER_NULL_LOCAL_ATTR_NAME, "El nom local d''atr \"{0}\" \u00e9s nul."};
+        contents[57] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "El text de recanvi del node de l''entitat \"{0}\" cont\u00e9 un node d''element \"{1}\" amb un prefix de no enlla\u00e7at \"{2}\"."};
+        contents[58] = new Object[]{MsgKey.ER_ELEM_UNBOUND_PREFIX_IN_ENTREF, "El text de recanvi del node de l''entitat \"{0}\" cont\u00e9 un node d''atribut \"{1}\" amb un prefix de no enlla\u00e7at \"{2}\"."};
+        return contents;
+    }
+}

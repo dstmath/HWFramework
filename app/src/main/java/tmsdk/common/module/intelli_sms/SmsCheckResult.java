@@ -1,0 +1,211 @@
+package tmsdk.common.module.intelli_sms;
+
+import java.util.ArrayList;
+
+/* compiled from: Unknown */
+public final class SmsCheckResult {
+    public static final int EMF_ACTION_DOUBT = 3;
+    public static final int EMF_ACTION_END = 5;
+    public static final int EMF_ACTION_INTERCEPT = 2;
+    public static final int EMF_ACTION_NONE = 0;
+    public static final int EMF_ACTION_PASS = 1;
+    public static final int EMF_ACTION_UNKNOW = 4;
+    public static final int EMSAT_BLACK = 3;
+    public static final int EMSAT_CHARGE_INTERCEPT = 8;
+    public static final int EMSAT_CONTENT_TOO_SHORT = 7;
+    public static final int EMSAT_DOUBT = 4;
+    public static final int EMSAT_DOUBT_INTERCEPT = 6;
+    public static final int EMSAT_MAX = 11;
+    public static final int EMSAT_MIN = 0;
+    public static final int EMSAT_NORMAL = 1;
+    public static final int EMSAT_NORMAL_UNKNOWN_PASS = 9;
+    public static final int EMSAT_UNKNOWN = 5;
+    public static final int EMSAT_USER_SET_BLACK = 10;
+    public static final int EMSAT_WHITE = 2;
+    public static final int ESCT_143 = 143;
+    public static final int ESCT_144 = 144;
+    public static final int ESCT_145 = 145;
+    public static final int ESCT_146 = 146;
+    public static final int ESCT_147 = 147;
+    public static final int ESCT_158 = 158;
+    public static final int ESCT_159 = 159;
+    public static final int ESCT_160 = 160;
+    public static final int ESCT_161 = 161;
+    public static final int ESCT_162 = 162;
+    public static final int ESCT_163 = 163;
+    public static final int ESCT_164 = 164;
+    public static final int ESCT_165 = 165;
+    public static final int ESCT_167 = 167;
+    public static final int ESCT_168 = 168;
+    public static final int ESCT_169 = 169;
+    public static final int ESCT_170 = 170;
+    public static final int ESCT_171 = 171;
+    public static final int ESCT_172 = 172;
+    public static final int ESCT_173 = 173;
+    public static final int ESCT_174 = 174;
+    public static final int ESCT_175 = 175;
+    public static final int ESCT_176 = 176;
+    public static final int ESCT_177 = 177;
+    public static final int ESCT_178 = 178;
+    public static final int ESCT_180 = 180;
+    public static final int ESCT_181 = 181;
+    public static final int ESCT_182 = 182;
+    public static final int ESCT_183 = 183;
+    public static final int ESCT_184 = 184;
+    public static final int ESCT_185 = 185;
+    public static final int ESCT_186 = 186;
+    public static final int ESCT_187 = 187;
+    public static final int ESCT_188 = 188;
+    public static final int ESCT_189 = 189;
+    public static final int ESCT_190 = 190;
+    public static final int ESCT_191 = 191;
+    public static final int ESCT_192 = 192;
+    public static final int ESCT_193 = 193;
+    public static final int ESCT_194 = 194;
+    public static final int ESCT_195 = 195;
+    public static final int ESCT_196 = 196;
+    public static final int ESCT_197 = 197;
+    public static final int ESCT_198 = 198;
+    public static final int ESCT_199 = 199;
+    public static final int ESCT_200 = 200;
+    public static final int ESCT_201 = 201;
+    public static final int ESCT_202 = 202;
+    public static final int ESCT_203 = 203;
+    public static final int ESCT_204 = 204;
+    public static final int ESCT_205 = 205;
+    public static final int ESCT_206 = 206;
+    public static final int ESCT_207 = 207;
+    public static final int ESCT_208 = 208;
+    public static final int ESCT_209 = 209;
+    public static final int ESCT_210 = 210;
+    public static final int ESCT_211 = 211;
+    public static final int ESCT_213 = 213;
+    public static final int ESCT_214 = 214;
+    public static final int ESCT_216 = 216;
+    public static final int ESCT_217 = 217;
+    public static final int ESCT_218 = 218;
+    public static final int ESCT_219 = 219;
+    public static final int ESCT_220 = 220;
+    public static final int ESCT_222 = 222;
+    public static final int ESCT_223 = 223;
+    public static final int ESCT_249 = 249;
+    public static final int ESCT_250 = 250;
+    public static final int ESCT_251 = 251;
+    public static final int ESCT_260 = 260;
+    public static final int ESCT_261 = 261;
+    public static final int ESCT_262 = 262;
+    public static final int ESCT_263 = 263;
+    public static final int ESCT_270 = 270;
+    public static final int ESCT_300 = 300;
+    public static final int ESCT_301 = 301;
+    public static final int ESCT_302 = 302;
+    public static final int ESCT_303 = 303;
+    public static final int ESCT_304 = 304;
+    public static final int ESCT_305 = 305;
+    public static final int ESCT_306 = 306;
+    public static final int ESCT_307 = 307;
+    public static final int ESCT_308 = 308;
+    public static final int ESCT_309 = 309;
+    public static final int ESCT_310 = 310;
+    public static final int ESCT_311 = 311;
+    public static final int ESCT_312 = 312;
+    public static final int ESCT_313 = 313;
+    public static final int ESCT_314 = 314;
+    public static final int ESCT_315 = 315;
+    public static final int ESCT_316 = 316;
+    public static final int ESCT_317 = 317;
+    public static final int ESCT_318 = 318;
+    public static final int ESCT_319 = 319;
+    public static final int ESCT_320 = 320;
+    public static final int ESCT_321 = 321;
+    public static final int ESCT_322 = 322;
+    public static final int ESCT_323 = 323;
+    public static final int ESCT_324 = 324;
+    public static final int ESCT_325 = 325;
+    public static final int ESCT_326 = 326;
+    public static final int ESCT_ADS = 166;
+    public static final int ESCT_CODE = 142;
+    public static final int ESCT_END = 327;
+    public static final int ESCT_ILLEGAL = 157;
+    public static final int ESCT_NORMAL = 101;
+    public static final int ESCT_PAY = 102;
+    public static final int ESCT_UNKNOWN = 100;
+    public static final int ESC_ADS = 3;
+    public static final int ESC_CHARGE = 8;
+    public static final int ESC_CHARGE_IN = 9;
+    public static final int ESC_EVIL_SOFT = 10;
+    public static final int ESC_FRAUD = 4;
+    public static final int ESC_NONE = 0;
+    public static final int ESC_NORMAL = 2;
+    public static final int ESC_OPERATOR_INFO = 7;
+    public static final int ESC_PAY = 11;
+    public static final int ESC_SEX = 6;
+    public static final int ESC_TEL_95013 = 49;
+    public static final int ESC_TEL_ADS = 40;
+    public static final int ESC_TEL_BANK = 42;
+    public static final int ESC_TEL_CREDIT_CARD = 43;
+    public static final int ESC_TEL_ESTATE = 45;
+    public static final int ESC_TEL_FRAUD = 41;
+    public static final int ESC_TEL_INSURANCE = 44;
+    public static final int ESC_TEL_MEETING = 47;
+    public static final int ESC_TEL_NET_TEL = 48;
+    public static final int ESC_TEL_OTHER = 50;
+    public static final int ESC_TEL_TRAIN = 46;
+    public static final int ESC_UNKNOWN = 1;
+    public float fScore;
+    public boolean sIsCloudResult;
+    public String sRiskClassify;
+    public String sRiskName;
+    public String sRiskReach;
+    public String sRiskUrl;
+    public String sRule;
+    public ArrayList<SmsRuleTypeID> stRuleTypeID;
+    public int uiActionReason;
+    public int uiContentType;
+    public int uiFinalAction;
+    public int uiMatchCnt;
+    public int uiShowRiskName;
+
+    /* compiled from: Unknown */
+    public static class SmsRuleTypeID {
+        public static final int EMRT_CHARGE = 6;
+        public static final int EMRT_EVIL_CARD = 12;
+        public static final int EMRT_EVIL_PHONE = 13;
+        public static final int EMRT_EVIL_URL = 14;
+        public static final int EMRT_KEYWORD = 2;
+        public static final int EMRT_MAX = 15;
+        public static final int EMRT_MD5 = 4;
+        public static final int EMRT_MIN = 0;
+        public static final int EMRT_PATTERN = 5;
+        public static final int EMRT_PHONE_PREFIX = 7;
+        public static final int EMRT_REGEX = 3;
+        public static final int EMRT_SENDER = 1;
+        public static final int EMRT_TEL_IMPEACH = 11;
+        public static final int EMRT_WAPPUSH_SENDER = 8;
+        public int uiRuleType;
+        public int uiRuleTypeId;
+    }
+
+    public void addRuleTypeID(int i, int i2) {
+        if (this.stRuleTypeID == null) {
+            this.stRuleTypeID = new ArrayList();
+        }
+        SmsRuleTypeID smsRuleTypeID = new SmsRuleTypeID();
+        smsRuleTypeID.uiRuleType = i;
+        smsRuleTypeID.uiRuleTypeId = i2;
+        this.stRuleTypeID.add(smsRuleTypeID);
+    }
+
+    public void setFields(int i, int i2, int i3, float f, int i4, String str) {
+        this.uiFinalAction = i;
+        this.uiContentType = i2;
+        this.uiMatchCnt = i3;
+        this.fScore = f;
+        this.uiActionReason = i4;
+        this.sRule = str;
+    }
+
+    public String toString() {
+        return "SmsCheckResult [uiFinalAction=" + this.uiFinalAction + ", uiContentType=" + this.uiContentType + ", uiMatchCnt=" + this.uiMatchCnt + ", fScore=" + this.fScore + ", uiActionReason=" + this.uiActionReason + ", stRuleTypeID=" + this.stRuleTypeID + ", sRule=" + this.sRule + ", uiShowRiskName=" + this.uiShowRiskName + ", sRiskClassify=" + this.sRiskClassify + ", sRiskUrl=" + this.sRiskUrl + ", sRiskName=" + this.sRiskName + ", sRiskReach=" + this.sRiskReach + "]";
+    }
+}
