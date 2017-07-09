@@ -20,8 +20,6 @@ jadx d out --show-bad-code *.dex //转换dex为java
  
 在android 5.0之后，系统的/system/framework目录下的jar包里面已经不包含代码了，只是一些空的jar文件。代码被存储在oat文件或者odex文件中，其中framework的代码主要集中在：
 
-1. /system/framework/oat/arm64
-
 ```
 1. /system/framework/oat/arm64
 
