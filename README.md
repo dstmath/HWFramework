@@ -130,21 +130,23 @@ services.odex: ELF 64-bit LSB shared object, ARM aarch64, version 1 (GNU/Linux),
 
 可以看到odex文件和oat文件本质上都是elf文件（Linux上的一种可执行文件）。通过查看相关文档可以发现，oat或odex文件中是存在有完整的dex文件的，我们只需要从oat或odex中将dex提取出来即可。
 
-	1. 在Mac或Linux平台上有个强大的工具dextra，只需要如下的命令就能从oat或odex中提取出dex文件：
-	
-	$ dextra -dextract services.odex 
+* 在Mac或Linux平台上有个强大的工具dextra，只需要如下的命令就能从oat或odex中提取出dex文件：
+
+```	
+$ dextra -dextract services.odex 
 	N OAT file (079)
 	OFF: 9b4
 	Dex header @0x10c7899e8 (2721 classes) at 0x9e8: /system/framework/services.jar
  	Written to system@framework@services.jar@classes.dex
 	Location Length: 30
 	
-	提取出来的dex文件：
+提取出来的dex文件：
 	system@framework@services.jar@classes.dex
-	
-	2. 在Windows平台
-	TODO:
-	
+```
+
+* 在Windows平台
+
+windows平台工具：[SmaliEx] (https://github.com/testwhat/SmaliEx)
 	
 	PS: 对此转换过程可以写个脚本oat2dex.sh放在framework目录下，来完成批量转换工作：
 	
