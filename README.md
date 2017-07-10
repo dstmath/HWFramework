@@ -1,6 +1,6 @@
 # huawei framework source
 
-## version:Honor5C, Android 7.0
+## version:Honor5C, Android 7.0,EMUI5.0
 本项目为研究hwframework层的源码。
 
 ```
