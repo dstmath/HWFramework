@@ -164,6 +164,12 @@ windows平台工具：[SmaliEx] (https://github.com/testwhat/SmaliEx)
 	do
 		dextra -dextract "$prefix/$file"
 	done
+	echo "===========dex转java=============="
+	files=`find . -name "*.dex"`
+	for file in $files
+	do
+	    jadx -d out --show-bad-code $file
+	done
 dex 反编译就有很多工具来实现了，这里推荐 `jadx`.
 
 
