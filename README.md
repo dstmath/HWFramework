@@ -172,4 +172,4 @@ windows平台工具：[SmaliEx] (https://github.com/testwhat/SmaliEx)
 	done
 dex 反编译就有很多工具来实现了，这里推荐 `jadx`.
 
-
+ps: 8.0之后dex保存在vdex中需要用新的工具从vdex中提取dex，工具链接[vdexExtractor](https://github.com/anestisb/vdexExtractor)
