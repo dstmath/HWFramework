@@ -1,0 +1,27 @@
+package com.huawei.dalvik.system;
+
+import dalvik.system.BlockGuard;
+
+public class BlockGuardEx {
+    public static final Policy LAX_POLICY = new Policy(BlockGuard.LAX_POLICY, null);
+
+    public static class Policy {
+        private dalvik.system.BlockGuard.Policy mPolicy;
+
+        /* synthetic */ Policy(dalvik.system.BlockGuard.Policy policy, Policy -this1) {
+            this(policy);
+        }
+
+        private Policy(dalvik.system.BlockGuard.Policy policy) {
+            this.mPolicy = policy;
+        }
+    }
+
+    public static Policy getThreadPolicy() {
+        return new Policy(BlockGuard.getThreadPolicy(), null);
+    }
+
+    public static void setThreadPolicy(Policy policy) {
+        BlockGuard.setThreadPolicy(policy.mPolicy);
+    }
+}

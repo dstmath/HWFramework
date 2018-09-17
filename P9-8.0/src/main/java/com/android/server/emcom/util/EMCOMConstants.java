@@ -1,0 +1,44 @@
+package com.android.server.emcom.util;
+
+public interface EMCOMConstants {
+    public static final int ACTION_ANY_DATA_CONNECTION_STATE_CHANGED = 10;
+    public static final int ACTION_NETWORK_STATE_CHANGED = 9;
+    public static final int ACTION_PACKAGE_ADDED = 1;
+    public static final int ACTION_PACKAGE_CHANGED = 2;
+    public static final int ACTION_PACKAGE_REMOVED = 3;
+    public static final int ACTION_SCREEN_OFF = 7;
+    public static final int ACTION_SCREEN_ON = 6;
+    public static final int ACTION_TIMEZONE_CHANGED = 5;
+    public static final int ACTION_TIME_CHANGED = 4;
+    public static final int ACTION_UNKNOWN = 0;
+    public static final int DEFAULT_SUB_NUMBER = 2;
+    public static final int DEF_ACC_GRADE = 1;
+    public static final int DEF_MAINCARD_PS_STATUS = 0;
+    public static final int INTENT_PACKAGE_NAME_OFFSET = 8;
+    public static final int INVALID_UID = -1;
+    public static final int MAX_ACC_GRADE = 3;
+    public static final int MAX_FORE_ACC_GRADE = 1;
+    public static final int MAX_MAINCARD_PS_STATUS = 1;
+    public static final int MESSAGE_BROADCAST_ACTION = 1;
+    public static final int MESSAGE_CALL_STATE_IDLE = 0;
+    public static final int MESSAGE_DELAY_TIME_ARRIVE = 9;
+    public static final int MESSAGE_FOREGOUND_FROM_PGPLUGTHREAD = 33;
+    public static final int MESSAGE_HICOMPOLICYMANAGER_TIMEDELAY = 1;
+    public static final int MESSAGE_RECEIVED_EVALUATION = 10;
+    public static final int MESSAGE_SD_BOOT_COMPLETE = 3;
+    public static final int MESSAGE_SD_CONFIG_MPIP = 13;
+    public static final int MESSAGE_SD_PACKAGE_CHANGE = 5;
+    public static final int MESSAGE_SD_START_ACC = 7;
+    public static final int MESSAGE_SD_START_MPIP = 14;
+    public static final int MESSAGE_SD_START_UDP_RETRAN = 11;
+    public static final int MESSAGE_SD_STOP_ACC = 8;
+    public static final int MESSAGE_SD_STOP_MPIP = 15;
+    public static final int MESSAGE_SD_STOP_UDP_RETRAN = 12;
+    public static final int MESSAGE_TIMER_STOP_ARRIVE = 6;
+    public static final int MESSAGE_TO_HANDLE_DATA_DISCONNECTED = 1;
+    public static final int MESSAGE_UPDATE_COMFIG = 2;
+    public static final int MESSAGE_XENGIEPROCESSOR_TIMEDELAY = 0;
+    public static final int MIN_ACC_GRADE = 1;
+    public static final int MIN_MAINCARD_PS_STATUS = 0;
+    public static final int REGULAR_DELAY = 2000;
+}

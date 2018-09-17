@@ -1,0 +1,46 @@
+package com.nxp.nfc;
+
+public final class NxpConstants {
+    public static final String ACTION_CHECK_X509 = "org.simalliance.openmobileapi.service.ACTION_CHECK_X509";
+    public static final String ACTION_CHECK_X509_RESULT = "org.simalliance.openmobileapi.service.ACTION_CHECK_X509_RESULT";
+    public static final String ACTION_CONNECTIVITY_EVENT_DETECTED = "com.nxp.action.CONNECTIVITY_EVENT_DETECTED";
+    public static final String ACTION_EMVCO_MULTIPLE_CARD_DETECTED = "com.nxp.action.EMVCO_MULTIPLE_CARD_DETECTED";
+    public static final String ACTION_GSMA_ENABLE_NFC = "com.gsma.services.nfc.action.ENABLE_NFC";
+    public static final String ACTION_GSMA_ENABLE_SET_FLAG = "com.gsma.services.nfc.action.ENABLE_NFC_SET_FALG";
+    public static final String ACTION_MULTI_EVT_TRANSACTION = "com.gsma.services.nfc.action.TRANSACTION_EVENT";
+    public static final String ACTION_ROUTING_TABLE_FULL = "nfc.intent.action.AID_ROUTING_TABLE_FULL";
+    public static final String ACTION_SWP_READER_ACTIVATED = "com.nxp.nfc_extras.ACTION_SWP_READER_ACTIVATED";
+    public static final String ACTION_SWP_READER_DEACTIVATED = "com.nxp.nfc_extras.ACTION_SWP_READER_DEACTIVATED";
+    public static final String ACTION_SWP_READER_REQUESTED = "com.nxp.nfc_extras.ACTION_SWP_READER_REQUESTED";
+    public static final String ACTION_SWP_READER_REQUESTED_FAILED = "com.nxp.nfc_extras.ACTION_SWP_READER_REQUESTED_FAILED";
+    public static final String ACTION_SWP_READER_TAG_PRESENT = "com.nxp.nfc_extras.ACTION_SWP_READER_TAG_PRESENT";
+    public static final String ACTION_SWP_READER_TAG_REMOVE = "com.nxp.nfc_extras.ACTION_SWP_READER_TAG_REMOVE";
+    public static final String ACTION_TRANSACTION_DETECTED = "com.nxp.action.TRANSACTION_DETECTED";
+    public static final String ALL_SE_ID = "com.nxp.all_se.ID";
+    public static final String EXTRA_AID = "com.nxp.extra.AID";
+    public static final String EXTRA_DATA = "com.nxp.extra.DATA";
+    public static final String EXTRA_GSMA_AID = "com.gsma.services.nfc.extra.AID";
+    public static final String EXTRA_GSMA_DATA = "com.gsma.services.nfc.extra.DATA";
+    public static final String EXTRA_GSMA_PREV_PAYMENT_COMPONENT = "com.gsma.services.nfc.extra.PREV_PAYMENT_COMPONENT";
+    public static final String EXTRA_PKG = "org.simalliance.openmobileapi.service.EXTRA_PKG";
+    public static final String EXTRA_RESULT = "org.simalliance.openmobileapi.service.extra.EXTRA_RESULT";
+    public static final String EXTRA_SE_NAME = "org.simalliance.openmobileapi.service.EXTRA_SE_NAME";
+    public static final String EXTRA_SOURCE = "com.nxp.extra.SOURCE";
+    public static final String HOST_ID = "com.nxp.host.ID";
+    public static final int HOST_ID_TYPE = 0;
+    public static final String PERMISSIONS_NFC = "android.permission.NFC";
+    public static final String PERMISSIONS_TRANSACTION_EVENT = "com.gsma.services.nfc.permission.TRANSACTION_EVENT";
+    static final byte PN553_FW_MAJOR_NUM = (byte) 1;
+    static final byte PN553_FW_ROM_VER = (byte) 17;
+    public static final int SERVICE_STATE_DISABLED = 0;
+    public static final int SERVICE_STATE_DISABLING = 3;
+    public static final int SERVICE_STATE_ENABLED = 1;
+    public static final int SERVICE_STATE_ENABLING = 2;
+    public static final String SET_PACKAGE_NAME = "org.simalliance.openmobileapi.service";
+    public static final String SMART_MX_ID = "com.nxp.smart_mx.ID";
+    public static final int SMART_MX_ID_TYPE = 1;
+    public static final String UICC2_ID = "com.nxp.uicc2.ID";
+    public static final int UICC2_ID_TYPE = 4;
+    public static final String UICC_ID = "SIM";
+    public static final int UICC_ID_TYPE = 2;
+}

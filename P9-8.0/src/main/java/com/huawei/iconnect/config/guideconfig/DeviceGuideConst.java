@@ -1,0 +1,48 @@
+package com.huawei.iconnect.config.guideconfig;
+
+public final class DeviceGuideConst {
+    public static final String ACTION_SETUP = "Setup";
+    public static final String APK_NAME_OF_EN = "en";
+    public static final String AUTO_DOWNLOAD_DISABLE = "false";
+    public static final String AUTO_DOWNLOAD_ENABLE = "true";
+    public static final String COMMAND_FROM_RECONNECT = "false";
+    public static final String DIALOG_MODE_INFO = "info";
+    public static final String DIALOG_MODE_INSTALL = "install";
+    public static final String EXTRA_APK_NAME = "com.huawei.deviceguide.extra.APK_NAME";
+    public static final String EXTRA_INFO_NEGATIVE = "com.huawei.deviceguide.extra.INFO_NEGATIVE";
+    public static final String EXTRA_INFO_POSITIVE = "com.huawei.deviceguide.extra.INFO_POSITIVE";
+    public static final String EXTRA_INFO_TEXT = "com.huawei.deviceguide.extra.INFO_TEXT";
+    public static final String EXTRA_INFO_TITLE = "com.huawei.deviceguide.extra.INFO_TITLE";
+    public static final String EXTRA_INFO_URL = "com.huawei.deviceguide.extra.INFO_URL";
+    public static final String EXTRA_MODE = "com.huawei.deviceguide.extra.MODE";
+    public static final String EXTRA_PACKAGE_NAME = "com.huawei.deviceguide.extra.PACKAGE_NAME";
+    public static final int FIRST_INDEX_OF_ARRAY = 0;
+    public static final String HIGUIDE_ACTION = "&hi_action=";
+    public static final String HIGUIDE_AUTO_DOWNLOAD = "&hi_autodownload=";
+    public static final String HIGUIDE_COM_HUAWEI_HIGUIDE_ACTION_LAUNCH = "higuide://com.huawei.higuide.action.LAUNCH?";
+    public static final String HIGUIDE_MODEL = "&hi_model=";
+    public static final String HIGUIDE_PROTOCOL = "hi_protocol=";
+    public static final String HIGUIDE_VENDOR = "&hi_vendor=";
+    public static final String HIGUIDE_VERSION = "&hi_version=";
+    public static final String LOCAL_ANDROID_WEAR_PACKAGE_NAME = "com.google.android.wearable.app.cn";
+    public static final String MARKET_DETAILS_ID_COM_HUAWEI_BONE = "market://details?id=com.huawei.bone";
+    public static final String OVERSEA_ANDROID_WEAR_PACKAGE_NAME = "com.google.android.wearable.app";
+    public static final String PROPERTY_LOCALE_LANGUAGE = "ro.product.locale.language";
+    public static final String PROPERTY_LOCALE_LANGUAGE_VALUE_CHINA = "zh";
+    public static final String PROPERTY_LOCALE_REGION = "ro.product.locale.region";
+    public static final String PROPERTY_LOCALE_REGION_VALUE_CHINA = "CN";
+    public static final String PROTOCOL_BT = "Bt";
+    public static final String PROTOCOL_BT_HW = "Bt_hw";
+    public static final String PROTOCOL_HILINK = "hilink";
+    public static final String PROTOCOL_HILINK_ROUTER = "hilink_router";
+    public static final String SCHEME_HIGUIDE = "higuide";
+    public static final String SCHEME_PARAM_ACTION = "hi_action";
+    public static final String SCHEME_PARAM_AUTO_DOWNLOAD = "hi_autodownload";
+    public static final String SCHEME_PARAM_MODEL = "hi_model";
+    public static final String SCHEME_PARAM_PROTOCOL = "hi_protocol";
+    public static final String SCHEME_PARAM_VENDOR = "hi_vendor";
+    public static final String SCHEME_PARAM_VERSION = "hi_version";
+    public static final String VERSION_GOOGLE_CHINA = "Google_china";
+    public static final String VERSION_OVERSEA = "Oversea";
+    public static final String VERSION_WATCH_UNKNOWN = "WatchUnknown";
+}

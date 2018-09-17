@@ -1,0 +1,48 @@
+package com.android.server.wifi;
+
+public class HwWifiDFTConst {
+    public static final int EID_110XDEVICEANDFIRMWAREEXCEPTION = 909002026;
+    public static final int EID_ABNORMALDISCONNECT = 909002022;
+    public static final int EID_ABSASSOCFAILEVENT = 909002034;
+    public static final int EID_ABSSTATISTICEVENT = 909002035;
+    public static final int EID_ACCESSINTERNETFAILED = 909002024;
+    public static final int EID_ACCESSWebSLOWLY = 909002025;
+    public static final int EID_CONNECTFAILED = 909002023;
+    public static final int EID_MSS_SWITCH_FAIL_EVENT = 909002038;
+    public static final int EID_OPENCLOSEFAILED = 909002021;
+    public static final int EID_STABILITYSSIDSTAT = 909001002;
+    public static final int EID_STABILITYSSIDSTAT2 = 909001004;
+    public static final int EID_STABILITYSTAT = 909001001;
+    public static final int EID_STABILITYSTAT2 = 909001003;
+    public static final int EID_WIFIAPMODELCOLLECT = 909002029;
+    public static final int EID_WIFIPORTALWEBFEATURES = 909002031;
+    public static final int EID_WIFIPRODUALBANDAP = 909002033;
+    public static final int EID_WIFIPRODUALBANDEXCEPTION = 909002028;
+    public static final int EID_WIFIPROEXCEPTION = 909002027;
+    public static final int EID_WIFIPROSTATISTICEVENT = 909002032;
+    public static final int EID_WIFISTATUSCHANGEDBYAPK = 909002030;
+    public static final int EID_WIFI_AP_CONNECT_INFO = 909009016;
+    public static final int EID_WIFI_AP_INFO = 909009001;
+    public static final int EID_WIFI_AP_ROAM_INFO = 909009005;
+    public static final int EID_WIFI_AP_SSID_INFO = 909009019;
+    public static final int EID_WIFI_ASSOC_FAIL_INFO = 909009004;
+    public static final int EID_WIFI_AUTH_FAIL_INFO = 909009003;
+    public static final int EID_WIFI_BCM_CHIP_INFO = 909009006;
+    public static final int EID_WIFI_BT_STATE_INFO = 909009008;
+    public static final int EID_WIFI_CELLID_INFO = 909009007;
+    public static final int EID_WIFI_CPU_MEM_INFO = 909009012;
+    public static final int EID_WIFI_DHCP_FAIL_INFO = 909009002;
+    public static final int EID_WIFI_DISTURB_INFO = 909009010;
+    public static final int EID_WIFI_DNS_FAILCNT_INFO = 909009028;
+    public static final int EID_WIFI_GAME_LAG_INFO = 909009026;
+    public static final int EID_WIFI_HANDSET_STATE_INFO = 909009013;
+    public static final int EID_WIFI_MAC_SSID_INFO = 909009018;
+    public static final int EID_WIFI_NET_CONFIG_INFO = 909009011;
+    public static final int EID_WIFI_NET_QUALITY_INFO = 909009015;
+    public static final int EID_WIFI_PKT_CNT_INFO = 909009024;
+    public static final int EID_WIFI_SDIO_INFO = 909009017;
+    public static final int EID_WIFI_SETTINGS_INFO = 909009009;
+    public static final int EID_WIFI_TCP_PACKET_INFO = 909009014;
+    public static final String IMONITORLOGDIR = "/data/log";
+    private static final String TAG = "HwWifiDFTConst";
+}
