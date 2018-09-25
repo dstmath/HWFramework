@@ -173,3 +173,23 @@ windows平台工具：[SmaliEx] (https://github.com/testwhat/SmaliEx)
 dex 反编译就有很多工具来实现了，这里推荐 `jadx`.
 
 ps: 8.0之后dex保存在vdex中需要用新的工具从vdex中提取dex，工具链接[vdexExtractor](https://github.com/anestisb/vdexExtractor)
+
+* 卡刷包提取framework方法
+	- system.new.dat.br 
+	- system.new.dat
+	- system.img
+
+1. .br文件是google的压缩算法brotli压缩之后的产物，需要先解压缩得到原始文件。
+linux下安装brotli：
+`apt install brotli`
+
+2. 解压缩.br文件
+`brotli --decompress --input system.new.dat.br --output system.new.dat`
+
+3. 提取system.img, 用到开源项目[sdat2img](https://github.com/xpirt/sdat2img)
+`python sdat2img.py system.transfer.list system.new.dat system.img`
+
+4. 挂载system.img
+`mount　system.img tmp`
+
+tmp目录下即为系统文件。
