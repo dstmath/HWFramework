@@ -1,0 +1,40 @@
+package com.android.internal.telephony;
+
+public class HwReportConstants {
+    public static final short E907047001_MCCMNC_OTHERSLOT_VARCHAR = 2;
+    public static final short E907047001_MCCMNC_VARCHAR = 0;
+    public static final short E907047001_SIMOPERATOR_VARCHAR = 1;
+    public static final short E907047001_SIMOPER_OTHERSLOT_VARCHAR = 3;
+    public static final short E907047002_AUTOTIMEZONE_INT = 2;
+    public static final short E907047002_NITZ_VARCHAR = 1;
+    public static final short E907047002_REGINFO_CLASS = 0;
+    public static final short E907047002_SUBID_INT = 3;
+    public static final short E907047002_TIMEZONESOURCE_VARCHAR = 4;
+    public static final short E907047003_AUTOTIMEZONE_INT = 2;
+    public static final short E907047003_MNITZUPDATEDTIME_BIT = 1;
+    public static final short E907047003_REGINFO_CLASS = 0;
+    public static final short E907047003_RPLMN_VARCHAR = 3;
+    public static final short E907047003_TIMEZONESOURCE_VARCHAR = 4;
+    public static final short E907047004_FORBIDDENREASON_VARCHAR = 4;
+    public static final short E907047004_ISVSIMOPEN_BIT = 2;
+    public static final short E907047004_NITZ_VARCHAR = 3;
+    public static final short E907047004_REGINFO_CLASS = 0;
+    public static final short E907047004_SUBID_INT = 1;
+    public static final short E907047005_ACESS_LOCATION_BIT = 1;
+    public static final short E907047005_AUTOTIMEZONE_INT = 3;
+    public static final short E907047005_LOCATION_MODE_INT = 2;
+    public static final short E907047005_PS_STATUS_BIT = 4;
+    public static final short E907047005_REGINFO_CLASS = 0;
+    public static final short E907047006_ACESS_LOCATION_BIT = 2;
+    public static final short E907047006_AUTOTIMEZONE_INT = 4;
+    public static final short E907047006_CURRENTZONE_VARCHAR = 1;
+    public static final short E907047006_LOCATION_MODE_INT = 3;
+    public static final short E907047006_PS_STATUS_BIT = 5;
+    public static final short E907047006_REGINFO_CLASS = 0;
+    public static final short E907047007_ACESS_LOCATION_BIT = 2;
+    public static final short E907047007_AUTOTIMEZONE_INT = 4;
+    public static final short E907047007_LOCATION_MODE_INT = 3;
+    public static final short E907047007_PS_STATUS_BIT = 5;
+    public static final short E907047007_REGINFO_CLASS = 0;
+    public static final short E907047007_ZONE_VARCHAR = 1;
+}

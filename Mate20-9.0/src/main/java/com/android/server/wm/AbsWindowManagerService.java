@@ -1,0 +1,56 @@
+package com.android.server.wm;
+
+import android.os.RemoteException;
+import android.view.IWindowLayoutObserver;
+import android.view.IWindowManager;
+
+public abstract class AbsWindowManagerService extends IWindowManager.Stub {
+    public static final int TOP_LAYER = 400000;
+    protected boolean mPCLauncherFocused = false;
+
+    /* access modifiers changed from: package-private */
+    public void setPCLauncherFocused(boolean focus) {
+    }
+
+    /* access modifiers changed from: package-private */
+    public boolean getPCLauncherFocused() {
+        return this.mPCLauncherFocused;
+    }
+
+    public int getPCScreenDisplayMode() {
+        return 0;
+    }
+
+    /* access modifiers changed from: protected */
+    public void updateInputImmersiveMode() {
+    }
+
+    /* access modifiers changed from: protected */
+    public void checkKeyguardDismissDoneLocked() {
+    }
+
+    public boolean isSplitMode() {
+        return false;
+    }
+
+    public void setSplittable(boolean splittable) {
+    }
+
+    public int getLayerIndex(String appName, int windowType) {
+        return 0;
+    }
+
+    /* access modifiers changed from: protected */
+    public boolean shouldHideIMExitAnim(WindowState win) {
+        return false;
+    }
+
+    public void registerWindowObserver(IWindowLayoutObserver observer, long period) throws RemoteException {
+    }
+
+    public void unRegisterWindowObserver(IWindowLayoutObserver observer) throws RemoteException {
+    }
+
+    public void startIntelliServiceFR(int orientation) {
+    }
+}

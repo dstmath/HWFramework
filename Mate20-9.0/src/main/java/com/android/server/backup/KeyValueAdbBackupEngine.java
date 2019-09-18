@@ -1,0 +1,241 @@
+package com.android.server.backup;
+
+import android.app.IBackupAgent;
+import android.app.backup.FullBackup;
+import android.app.backup.FullBackupDataOutput;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.ParcelFileDescriptor;
+import android.os.RemoteException;
+import android.os.SELinux;
+import android.util.Slog;
+import com.android.internal.util.Preconditions;
+import com.android.server.backup.utils.FullBackupUtils;
+import com.android.server.job.controllers.JobStatus;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import libcore.io.IoUtils;
+
+public class KeyValueAdbBackupEngine {
+    private static final String BACKUP_KEY_VALUE_BACKUP_DATA_FILENAME_SUFFIX = ".data";
+    private static final String BACKUP_KEY_VALUE_BLANK_STATE_FILENAME = "blank_state";
+    private static final String BACKUP_KEY_VALUE_DIRECTORY_NAME = "key_value_dir";
+    private static final String BACKUP_KEY_VALUE_NEW_STATE_FILENAME_SUFFIX = ".new";
+    private static final boolean DEBUG = false;
+    private static final String TAG = "KeyValueAdbBackupEngine";
+    private final BackupAgentTimeoutParameters mAgentTimeoutParameters;
+    private ParcelFileDescriptor mBackupData;
+    /* access modifiers changed from: private */
+    public final File mBackupDataName;
+    /* access modifiers changed from: private */
+    public BackupManagerServiceInterface mBackupManagerService;
+    private final File mBlankStateName = new File(this.mStateDir, BACKUP_KEY_VALUE_BLANK_STATE_FILENAME);
+    private final PackageInfo mCurrentPackage;
+    /* access modifiers changed from: private */
+    public final File mDataDir;
+    /* access modifiers changed from: private */
+    public final File mManifestFile;
+    private ParcelFileDescriptor mNewState;
+    private final File mNewStateName;
+    private final OutputStream mOutput;
+    /* access modifiers changed from: private */
+    public final PackageManager mPackageManager;
+    private ParcelFileDescriptor mSavedState;
+    private final File mStateDir;
+
+    class KeyValueAdbBackupDataCopier implements Runnable {
+        private final PackageInfo mPackage;
+        private final ParcelFileDescriptor mPipe;
+        private final int mToken;
+
+        KeyValueAdbBackupDataCopier(PackageInfo pack, ParcelFileDescriptor pipe, int token) throws IOException {
+            this.mPackage = pack;
+            this.mPipe = ParcelFileDescriptor.dup(pipe.getFileDescriptor());
+            this.mToken = token;
+        }
+
+        public void run() {
+            try {
+                FullBackupDataOutput output = new FullBackupDataOutput(this.mPipe);
+                FullBackupUtils.writeAppManifest(this.mPackage, KeyValueAdbBackupEngine.this.mPackageManager, KeyValueAdbBackupEngine.this.mManifestFile, false, false);
+                FullBackup.backupToTar(this.mPackage.packageName, "k", null, KeyValueAdbBackupEngine.this.mDataDir.getAbsolutePath(), KeyValueAdbBackupEngine.this.mManifestFile.getAbsolutePath(), output);
+                KeyValueAdbBackupEngine.this.mManifestFile.delete();
+                FullBackup.backupToTar(this.mPackage.packageName, "k", null, KeyValueAdbBackupEngine.this.mDataDir.getAbsolutePath(), KeyValueAdbBackupEngine.this.mBackupDataName.getAbsolutePath(), output);
+                try {
+                    new FileOutputStream(this.mPipe.getFileDescriptor()).write(new byte[4]);
+                } catch (IOException e) {
+                    Slog.e(KeyValueAdbBackupEngine.TAG, "Unable to finalize backup stream!");
+                }
+                try {
+                    KeyValueAdbBackupEngine.this.mBackupManagerService.getBackupManagerBinder().opComplete(this.mToken, 0);
+                } catch (RemoteException e2) {
+                }
+            } catch (IOException e3) {
+                Slog.e(KeyValueAdbBackupEngine.TAG, "Error running full backup for " + this.mPackage.packageName + ". " + e3);
+            } catch (Throwable th) {
+                IoUtils.closeQuietly(this.mPipe);
+                throw th;
+            }
+            IoUtils.closeQuietly(this.mPipe);
+        }
+    }
+
+    public KeyValueAdbBackupEngine(OutputStream output, PackageInfo packageInfo, BackupManagerServiceInterface backupManagerService, PackageManager packageManager, File baseStateDir, File dataDir) {
+        this.mOutput = output;
+        this.mCurrentPackage = packageInfo;
+        this.mBackupManagerService = backupManagerService;
+        this.mPackageManager = packageManager;
+        this.mDataDir = dataDir;
+        this.mStateDir = new File(baseStateDir, BACKUP_KEY_VALUE_DIRECTORY_NAME);
+        this.mStateDir.mkdirs();
+        String pkg = this.mCurrentPackage.packageName;
+        File file = this.mDataDir;
+        this.mBackupDataName = new File(file, pkg + BACKUP_KEY_VALUE_BACKUP_DATA_FILENAME_SUFFIX);
+        File file2 = this.mStateDir;
+        this.mNewStateName = new File(file2, pkg + BACKUP_KEY_VALUE_NEW_STATE_FILENAME_SUFFIX);
+        this.mManifestFile = new File(this.mDataDir, BackupManagerService.BACKUP_MANIFEST_FILENAME);
+        this.mAgentTimeoutParameters = (BackupAgentTimeoutParameters) Preconditions.checkNotNull(backupManagerService.getAgentTimeoutParameters(), "Timeout parameters cannot be null");
+    }
+
+    public void backupOnePackage() throws IOException {
+        ApplicationInfo targetApp = this.mCurrentPackage.applicationInfo;
+        try {
+            prepareBackupFiles(this.mCurrentPackage.packageName);
+            IBackupAgent agent = bindToAgent(targetApp);
+            if (agent == null) {
+                Slog.e(TAG, "Failed binding to BackupAgent for package " + this.mCurrentPackage.packageName);
+                cleanup();
+            } else if (!invokeAgentForAdbBackup(this.mCurrentPackage.packageName, agent)) {
+                Slog.e(TAG, "Backup Failed for package " + this.mCurrentPackage.packageName);
+                cleanup();
+            } else {
+                writeBackupData();
+                cleanup();
+            }
+        } catch (FileNotFoundException e) {
+            Slog.e(TAG, "Failed creating files for package " + this.mCurrentPackage.packageName + " will ignore package. " + e);
+        } catch (Throwable th) {
+            cleanup();
+            throw th;
+        }
+    }
+
+    private void prepareBackupFiles(String packageName) throws FileNotFoundException {
+        this.mSavedState = ParcelFileDescriptor.open(this.mBlankStateName, 402653184);
+        this.mBackupData = ParcelFileDescriptor.open(this.mBackupDataName, 1006632960);
+        if (!SELinux.restorecon(this.mBackupDataName)) {
+            Slog.e(TAG, "SELinux restorecon failed on " + this.mBackupDataName);
+        }
+        this.mNewState = ParcelFileDescriptor.open(this.mNewStateName, 1006632960);
+    }
+
+    private IBackupAgent bindToAgent(ApplicationInfo targetApp) {
+        try {
+            return this.mBackupManagerService.bindToAgentSynchronous(targetApp, 0);
+        } catch (SecurityException e) {
+            Slog.e(TAG, "error in binding to agent for package " + targetApp.packageName + ". " + e);
+            return null;
+        }
+    }
+
+    private boolean invokeAgentForAdbBackup(String packageName, IBackupAgent agent) {
+        String str = packageName;
+        int token = this.mBackupManagerService.generateRandomIntegerToken();
+        try {
+            this.mBackupManagerService.prepareOperationTimeout(token, this.mAgentTimeoutParameters.getKvBackupAgentTimeoutMillis(), null, 0);
+            int token2 = token;
+            try {
+                agent.doBackup(this.mSavedState, this.mBackupData, this.mNewState, JobStatus.NO_LATEST_RUNTIME, token, this.mBackupManagerService.getBackupManagerBinder(), 0);
+                if (this.mBackupManagerService.waitUntilOperationComplete(token2)) {
+                    return true;
+                }
+                Slog.e(TAG, "Key-value backup failed on package " + str);
+                return false;
+            } catch (RemoteException e) {
+                e = e;
+                Slog.e(TAG, "Error invoking agent for backup on " + str + ". " + e);
+                return false;
+            }
+        } catch (RemoteException e2) {
+            e = e2;
+            int i = token;
+            Slog.e(TAG, "Error invoking agent for backup on " + str + ". " + e);
+            return false;
+        }
+    }
+
+    /* JADX WARNING: Removed duplicated region for block: B:23:0x00a8  */
+    /* JADX WARNING: Removed duplicated region for block: B:26:0x00b8  */
+    /* JADX WARNING: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
+    private void writeBackupData() throws IOException {
+        ParcelFileDescriptor[] pipes;
+        IOException e;
+        ParcelFileDescriptor parcelFileDescriptor;
+        int token = this.mBackupManagerService.generateRandomIntegerToken();
+        long kvBackupAgentTimeoutMillis = this.mAgentTimeoutParameters.getKvBackupAgentTimeoutMillis();
+        try {
+            pipes = ParcelFileDescriptor.createPipe();
+            try {
+                this.mBackupManagerService.prepareOperationTimeout(token, kvBackupAgentTimeoutMillis, null, 0);
+                KeyValueAdbBackupDataCopier runner = new KeyValueAdbBackupDataCopier(this.mCurrentPackage, pipes[1], token);
+                pipes[1].close();
+                pipes[1] = null;
+                new Thread(runner, "key-value-app-data-runner").start();
+                FullBackupUtils.routeSocketDataToOutput(pipes[0], this.mOutput);
+                if (!this.mBackupManagerService.waitUntilOperationComplete(token)) {
+                    Slog.e(TAG, "Full backup failed on package " + this.mCurrentPackage.packageName);
+                }
+                this.mOutput.flush();
+                if (pipes != null) {
+                    IoUtils.closeQuietly(pipes[0]);
+                    parcelFileDescriptor = pipes[1];
+                    IoUtils.closeQuietly(parcelFileDescriptor);
+                }
+            } catch (IOException e2) {
+                e = e2;
+                try {
+                    Slog.e(TAG, "Error backing up " + this.mCurrentPackage.packageName + ": " + e);
+                    this.mOutput.flush();
+                    if (pipes == null) {
+                        IoUtils.closeQuietly(pipes[0]);
+                        parcelFileDescriptor = pipes[1];
+                        IoUtils.closeQuietly(parcelFileDescriptor);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    this.mOutput.flush();
+                    if (pipes != null) {
+                        IoUtils.closeQuietly(pipes[0]);
+                        IoUtils.closeQuietly(pipes[1]);
+                    }
+                    throw th;
+                }
+            }
+        } catch (IOException e3) {
+            pipes = null;
+            e = e3;
+            Slog.e(TAG, "Error backing up " + this.mCurrentPackage.packageName + ": " + e);
+            this.mOutput.flush();
+            if (pipes == null) {
+            }
+        } catch (Throwable th2) {
+            pipes = null;
+            th = th2;
+            this.mOutput.flush();
+            if (pipes != null) {
+            }
+            throw th;
+        }
+    }
+
+    private void cleanup() {
+        this.mBackupManagerService.tearDownAgentAndKill(this.mCurrentPackage.applicationInfo);
+        this.mBlankStateName.delete();
+        this.mNewStateName.delete();
+        this.mBackupDataName.delete();
+    }
+}
