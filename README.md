@@ -193,3 +193,6 @@ linux下安装brotli：
 `mount　system.img tmp`
 
 tmp目录下即为系统文件。
+
+## Android 10
+Android 10上面,vdex不包含dex文件了，dex文件存放在原apk中或者jar包中。
