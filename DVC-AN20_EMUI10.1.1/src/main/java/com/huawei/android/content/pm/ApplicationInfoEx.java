@@ -1,0 +1,58 @@
+package com.huawei.android.content.pm;
+
+import android.content.pm.ApplicationInfo;
+import android.content.pm.HwApplicationInfo;
+import android.util.SparseArray;
+import com.huawei.annotation.HwSystemApi;
+
+public class ApplicationInfoEx {
+    public static final int BLACK_LIST_APK = 268435456;
+    public static final int FLAG_HW_SPLIT_CONFIG = 536870912;
+    public static final int FLAG_HW_SPLIT_FEATURE = 1073741824;
+    public static final int FLAG_HW_SPLIT_PLUGIN = Integer.MIN_VALUE;
+    public static final int FLAG_UPDATED_REMOVEABLE_APP = 67108864;
+    public static final int PARSE_IS_REMOVABLE_PREINSTALLED_APK = 33554432;
+    private ApplicationInfo applicationInfo = new ApplicationInfo();
+
+    public ApplicationInfoEx(ApplicationInfo applicationInfo2) {
+        this.applicationInfo = applicationInfo2;
+    }
+
+    public int getHwFlags() {
+        return this.applicationInfo.hwFlags;
+    }
+
+    public static boolean isDirectBootAware(ApplicationInfo applicationInfo2) {
+        return applicationInfo2.isDirectBootAware();
+    }
+
+    public static int[] getHwSplitFlags(ApplicationInfo applicationInfo2) {
+        if (applicationInfo2 == null) {
+            return new int[0];
+        }
+        return applicationInfo2.hwSplitFlags;
+    }
+
+    public static int[] getSplitVersionCodes(ApplicationInfo applicationInfo2) {
+        if (applicationInfo2 == null) {
+            return new int[0];
+        }
+        return applicationInfo2.splitVersionCodes;
+    }
+
+    public static boolean hasPlugin(ApplicationInfo applicationInfo2) {
+        if (applicationInfo2 == null) {
+            return false;
+        }
+        return applicationInfo2.hasPlugin();
+    }
+
+    public static SparseArray<int[]> getSplitDependencies(ApplicationInfo applicationInfo2) {
+        return HwApplicationInfo.getSplitDependencies(applicationInfo2);
+    }
+
+    @HwSystemApi
+    public static long getLongVersionCode(ApplicationInfo applicationInfo2) {
+        return applicationInfo2.longVersionCode;
+    }
+}
