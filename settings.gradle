@@ -1,1 +1,1 @@
-include ':app', ':Honor5C-7.0', ':P9-8.0','Mate20-9.0'
+include ':app', ':Honor5C-7.0', ':P9-8.0','Mate20-9.0','DVC-AN20_EMUI10.1.1'
