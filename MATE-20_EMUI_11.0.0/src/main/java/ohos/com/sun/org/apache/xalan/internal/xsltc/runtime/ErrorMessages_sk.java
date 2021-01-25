@@ -1,0 +1,10 @@
+package ohos.com.sun.org.apache.xalan.internal.xsltc.runtime;
+
+import java.util.ListResourceBundle;
+
+public class ErrorMessages_sk extends ListResourceBundle {
+    @Override // java.util.ListResourceBundle
+    public Object[][] getContents() {
+        return new Object[][]{new Object[]{BasisLibrary.RUN_TIME_INTERNAL_ERR, "Interná chyba času spustenia v ''{0}''"}, new Object[]{BasisLibrary.RUN_TIME_COPY_ERR, "Chyba času spustenia pri spúšťaní <xsl:copy>."}, new Object[]{"DATA_CONVERSION_ERR", "Neplatná konverzia z ''{0}'' na ''{1}''."}, new Object[]{BasisLibrary.EXTERNAL_FUNC_ERR, "XSLTC nepodporuje externú funkciu ''{0}''."}, new Object[]{BasisLibrary.EQUALITY_EXPR_ERR, "Neznámy typ argumentu je výrazom rovnosti."}, new Object[]{BasisLibrary.INVALID_ARGUMENT_ERR, "Neplatný typ argumentu ''{0}'' vo volaní do ''{1}''"}, new Object[]{BasisLibrary.FORMAT_NUMBER_ERR, "Pokus o formátovanie čísla ''{0}'' pomocou vzoru ''{1}''."}, new Object[]{BasisLibrary.ITERATOR_CLONE_ERR, "Nie je možné klonovať iterátor ''{0}''."}, new Object[]{BasisLibrary.AXIS_SUPPORT_ERR, "Iterátor pre os ''{0}'' nie je podporovaný."}, new Object[]{BasisLibrary.TYPED_AXIS_SUPPORT_ERR, "Iterátor pre napísanú os ''{0}'' nie je podporovaný."}, new Object[]{"STRAY_ATTRIBUTE_ERR", "Atribút ''{0}'' je mimo elementu."}, new Object[]{BasisLibrary.STRAY_NAMESPACE_ERR, "Deklarácia názvového priestoru ''{0}''=''{1}'' je mimo elementu."}, new Object[]{BasisLibrary.NAMESPACE_PREFIX_ERR, "Názvový priestor pre predponu ''{0}'' nebol deklarovaný."}, new Object[]{BasisLibrary.DOM_ADAPTER_INIT_ERR, "DOMAdapter bol vytvorený pomocou nesprávneho typu zdrojového DOM."}, new Object[]{BasisLibrary.PARSER_DTD_SUPPORT_ERR, "Analyzátor SAX, ktorý používate, nespracúva udalosti deklarácie DTD."}, new Object[]{BasisLibrary.NAMESPACES_SUPPORT_ERR, "Analyzátor SAX, ktorý používate, nemá podporu pre názvové priestory XML."}, new Object[]{BasisLibrary.CANT_RESOLVE_RELATIVE_URI_ERR, "Nebolo možné rozlíšiť referenciu URI ''{0}''."}};
+    }
+}

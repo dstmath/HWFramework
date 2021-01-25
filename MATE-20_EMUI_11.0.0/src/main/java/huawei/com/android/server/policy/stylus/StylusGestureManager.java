@@ -1,0 +1,246 @@
+package huawei.com.android.server.policy.stylus;
+
+import android.app.ActivityManager;
+import android.app.SynchronousUserSwitchObserver;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.hidl.manager.V1_0.IServiceManager;
+import android.hidl.manager.V1_0.IServiceNotification;
+import android.os.IHwBinder;
+import android.os.RemoteException;
+import android.os.SystemProperties;
+import android.provider.Settings;
+import android.util.Log;
+import java.util.NoSuchElementException;
+import vendor.huawei.hardware.tp.V1_0.ITouchscreen;
+
+public class StylusGestureManager {
+    private static final int FLAG_STYLUS = 1;
+    private static final String KEY_STYLUS_ACTIVATE = "stylus_state_activate";
+    private static final String KEY_STYLUS_STATE_ENABLE = "stylus_enable";
+    private static final String KEY_STYLUS_STATE_INTRODUCE = "stylus_state_introduce";
+    private static final int MPEN_DFLT_VALUE = (SystemProperties.getBoolean("ro.mpen.default.support", true) ? 1 : 0);
+    private static int STYLUS_ACTIVATE_DISABLE = 0;
+    private static int STYLUS_ACTIVATE_ENABLE = 1;
+    private static final int STYLUS_DISABLE = 0;
+    private static final int STYLUS_ENABLE = 1;
+    private static int STYLUS_INTRODUCED_NO = 0;
+    private static final String STYLUS_TP_DISABLE = "0";
+    private static final String STYLUS_TP_LOWFREQUENCY = "2";
+    private static final String STYLUS_TP_NORMAL = "1";
+    private static final String TAG = "StylusGestureManager";
+    private static final int TP_HAL_DEATH_COOKIE = 1001;
+    private Context mContext;
+    private final Object mLock = new Object();
+    private ITouchscreen mProxy = null;
+    private final ServiceNotification mServiceNotification = new ServiceNotification();
+    private ContentObserver mStylusActivateObserver;
+    private ContentObserver mStylusIntroduceObserver;
+    private int mStylusIntroduced = 0;
+    private ContentObserver mStylusObserver;
+    private int mStylusState = 0;
+
+    public StylusGestureManager(Context context) {
+        this.mContext = context;
+        getTouchService();
+        connectToProxy();
+        initStylusStateObserver();
+        initUserSwtichObserver();
+        initStylusIntroducedObserver();
+        initStylusActivateObserver();
+    }
+
+    private void initStylusStateObserver() {
+        if (this.mContext == null) {
+            Log.w(TAG, "initStylusStateObserver mContext is null");
+            return;
+        }
+        this.mStylusObserver = new ContentObserver(null) {
+            /* class huawei.com.android.server.policy.stylus.StylusGestureManager.AnonymousClass1 */
+
+            @Override // android.database.ContentObserver
+            public void onChange(boolean isSelfChange) {
+                StylusGestureManager stylusGestureManager = StylusGestureManager.this;
+                stylusGestureManager.mStylusState = Settings.System.getIntForUser(stylusGestureManager.mContext.getContentResolver(), StylusGestureManager.KEY_STYLUS_STATE_ENABLE, StylusGestureManager.MPEN_DFLT_VALUE, ActivityManager.getCurrentUser());
+                Log.i(StylusGestureManager.TAG, "stylus_enable_state onChange: " + StylusGestureManager.this.mStylusState);
+                int stylusActivated = Settings.Global.getInt(StylusGestureManager.this.mContext.getContentResolver(), StylusGestureManager.KEY_STYLUS_ACTIVATE, StylusGestureManager.STYLUS_ACTIVATE_DISABLE);
+                Log.i(StylusGestureManager.TAG, "isStylusActivated: " + stylusActivated);
+                StylusGestureManager stylusGestureManager2 = StylusGestureManager.this;
+                stylusGestureManager2.setStylusWakeupGestureToHal(stylusGestureManager2.mStylusState, stylusActivated);
+            }
+        };
+        this.mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_STYLUS_STATE_ENABLE), false, this.mStylusObserver, -1);
+        this.mStylusObserver.onChange(true);
+    }
+
+    private void initStylusIntroducedObserver() {
+        if (this.mContext == null) {
+            Log.w(TAG, "initStylusIntroducedObserver mContext is null");
+            return;
+        }
+        this.mStylusIntroduceObserver = new ContentObserver(null) {
+            /* class huawei.com.android.server.policy.stylus.StylusGestureManager.AnonymousClass2 */
+
+            @Override // android.database.ContentObserver
+            public void onChange(boolean isSelfChange) {
+                StylusGestureManager stylusGestureManager = StylusGestureManager.this;
+                stylusGestureManager.mStylusIntroduced = Settings.System.getIntForUser(stylusGestureManager.mContext.getContentResolver(), StylusGestureManager.KEY_STYLUS_STATE_INTRODUCE, StylusGestureManager.STYLUS_INTRODUCED_NO, ActivityManager.getCurrentUser());
+                Log.i(StylusGestureManager.TAG, "stylus_state_introduce onChange: " + StylusGestureManager.this.mStylusIntroduced);
+            }
+        };
+        this.mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_STYLUS_STATE_INTRODUCE), false, this.mStylusIntroduceObserver, -1);
+        this.mStylusIntroduceObserver.onChange(true);
+    }
+
+    private void initStylusActivateObserver() {
+        if (this.mContext == null) {
+            Log.w(TAG, "initStylusActivateObserver mContext is null");
+            return;
+        }
+        this.mStylusActivateObserver = new ContentObserver(null) {
+            /* class huawei.com.android.server.policy.stylus.StylusGestureManager.AnonymousClass3 */
+
+            @Override // android.database.ContentObserver
+            public void onChange(boolean isSelfChange) {
+                int stylusState = Settings.System.getIntForUser(StylusGestureManager.this.mContext.getContentResolver(), StylusGestureManager.KEY_STYLUS_STATE_ENABLE, StylusGestureManager.MPEN_DFLT_VALUE, ActivityManager.getCurrentUser());
+                Log.i(StylusGestureManager.TAG, "get stylus state : " + stylusState);
+                int stylusActivated = Settings.Global.getInt(StylusGestureManager.this.mContext.getContentResolver(), StylusGestureManager.KEY_STYLUS_ACTIVATE, StylusGestureManager.STYLUS_ACTIVATE_DISABLE);
+                Log.i(StylusGestureManager.TAG, "stylus_state_activate onChange: " + stylusActivated);
+                StylusGestureManager.this.setStylusWakeupGestureToHal(stylusState, stylusActivated);
+            }
+        };
+        this.mContext.getContentResolver().registerContentObserver(Settings.Global.getUriFor(KEY_STYLUS_ACTIVATE), false, this.mStylusActivateObserver);
+    }
+
+    private void initUserSwtichObserver() {
+        try {
+            ActivityManager.getService().registerUserSwitchObserver(new SynchronousUserSwitchObserver() {
+                /* class huawei.com.android.server.policy.stylus.StylusGestureManager.AnonymousClass4 */
+
+                public void onUserSwitching(int newUserId) {
+                }
+
+                public void onUserSwitchComplete(int newUserId) throws RemoteException {
+                    Log.i(StylusGestureManager.TAG, "onUserSwitchComplete: " + newUserId);
+                    if (StylusGestureManager.this.mStylusObserver != null) {
+                        StylusGestureManager.this.mStylusObserver.onChange(true);
+                    }
+                    if (StylusGestureManager.this.mStylusIntroduceObserver != null) {
+                        StylusGestureManager.this.mStylusIntroduceObserver.onChange(true);
+                    }
+                }
+            }, TAG);
+        } catch (RemoteException e) {
+            Log.e(TAG, "registerUserSwitchObserver fail" + e.getMessage());
+        } catch (Exception e2) {
+            Log.e(TAG, "registerReceiverAsUser fail.");
+        }
+    }
+
+    public boolean isStylusEnabled() {
+        return this.mStylusState == 1;
+    }
+
+    public boolean isStylusActivate() {
+        return Settings.Global.getInt(this.mContext.getContentResolver(), KEY_STYLUS_ACTIVATE, STYLUS_ACTIVATE_DISABLE) == STYLUS_ACTIVATE_ENABLE;
+    }
+
+    public boolean isStylusIntroduced() {
+        if (this.mStylusIntroduced != STYLUS_INTRODUCED_NO) {
+            return true;
+        }
+        if (Settings.Global.getInt(this.mContext.getContentResolver(), "device_provisioned", 0) == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    private void getTouchService() {
+        try {
+            if (!IServiceManager.getService().registerForNotifications(ITouchscreen.kInterfaceName, "", this.mServiceNotification)) {
+                Log.e(TAG, "Failed to register service start notification");
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to register service start notification");
+        }
+    }
+
+    /* access modifiers changed from: package-private */
+    public final class DeathRecipient implements IHwBinder.DeathRecipient {
+        DeathRecipient() {
+        }
+
+        public void serviceDied(long cookie) {
+            if (cookie == 1001) {
+                Log.d(StylusGestureManager.TAG, "tp hal service died cookie: " + cookie);
+                synchronized (StylusGestureManager.this.mLock) {
+                    StylusGestureManager.this.mProxy = null;
+                }
+            }
+        }
+    }
+
+    /* access modifiers changed from: package-private */
+    public final class ServiceNotification extends IServiceNotification.Stub {
+        ServiceNotification() {
+        }
+
+        public void onRegistration(String fqName, String name, boolean isPreexisting) {
+            Log.d(StylusGestureManager.TAG, "tp hal service started " + fqName + " " + name);
+            StylusGestureManager.this.connectToProxy();
+        }
+    }
+
+    /* access modifiers changed from: private */
+    /* access modifiers changed from: public */
+    private void connectToProxy() {
+        synchronized (this.mLock) {
+            if (this.mProxy != null) {
+                Log.i(TAG, "mProxy has registered, do not register again");
+                return;
+            }
+            try {
+                this.mProxy = ITouchscreen.getService();
+                if (this.mProxy != null) {
+                    Log.d(TAG, "connectToProxy: mProxy get success.");
+                    this.mProxy.linkToDeath(new DeathRecipient(), 1001);
+                } else {
+                    Log.d(TAG, "connectToProxy: mProxy get failed.");
+                }
+            } catch (NoSuchElementException e) {
+                Log.e(TAG, "connectToProxy: tp hal service not found. Did the service fail to start?" + e.getMessage());
+            } catch (RemoteException e2) {
+                Log.e(TAG, "connectToProxy: tp hal service not responding" + e2.getMessage());
+            }
+        }
+    }
+
+    /* access modifiers changed from: private */
+    /* access modifiers changed from: public */
+    private void setStylusWakeupGestureToHal(int status, int stylusActivated) {
+        String tpStatus;
+        synchronized (this.mLock) {
+            if (this.mProxy == null) {
+                Log.d(TAG, "mProxy is null, return");
+                return;
+            }
+            if (status == 0) {
+                tpStatus = "0";
+            } else if (stylusActivated == STYLUS_ACTIVATE_DISABLE) {
+                tpStatus = "2";
+            } else {
+                tpStatus = "1";
+            }
+            Log.i(TAG, "setStylusWakeupGestureToHal: " + tpStatus);
+            try {
+                if (this.mProxy.hwSetFeatureConfig(1, tpStatus) == 0) {
+                    Log.d(TAG, "setStylusWakeupGestureToHal success");
+                } else {
+                    Log.d(TAG, "setStylusWakeupGestureToHal error");
+                }
+            } catch (RemoteException e) {
+                Log.e(TAG, "Failed to set stylus mode:" + e.getMessage());
+            }
+        }
+    }
+}

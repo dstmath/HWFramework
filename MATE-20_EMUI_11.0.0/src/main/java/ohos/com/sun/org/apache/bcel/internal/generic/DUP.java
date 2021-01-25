@@ -1,0 +1,15 @@
+package ohos.com.sun.org.apache.bcel.internal.generic;
+
+public class DUP extends StackInstruction implements PushInstruction {
+    public DUP() {
+        super(89);
+    }
+
+    @Override // ohos.com.sun.org.apache.bcel.internal.generic.Instruction
+    public void accept(Visitor visitor) {
+        visitor.visitStackProducer(this);
+        visitor.visitPushInstruction(this);
+        visitor.visitStackInstruction(this);
+        visitor.visitDUP(this);
+    }
+}

@@ -1,0 +1,46 @@
+package com.android.server.hidata.wavemapping.cons;
+
+public class WMStateCons {
+    public static final int ACT_SUBSTATE_MOVING = 2;
+    public static final int ACT_SUBSTATE_STATIONARY = 1;
+    public static final int LASTRECG_SUBSTATE_LOCATING = 2;
+    public static final int LASTRECG_SUBSTATE_NOTRECG = 0;
+    public static final int LASTRECG_SUBSTATE_POSITION = 1;
+    public static final int MSG_ADD_FREQ_LOCATION_TOOL = 20;
+    public static final int MSG_APP_DATA_STALL = 211;
+    public static final int MSG_APP_QOE_EVENT = 210;
+    public static final int MSG_APP_STATE_END = 201;
+    public static final int MSG_APP_STATE_NWUPDATE = 202;
+    public static final int MSG_APP_STATE_START = 200;
+    public static final int MSG_AR_MOVE = 110;
+    public static final int MSG_AR_STATION = 113;
+    public static final int MSG_BACK_4G_COVERAGE = 141;
+    public static final int MSG_BUILDMODEL_COMPLETED = 81;
+    public static final int MSG_CELL_CHANGE = 93;
+    public static final int MSG_CELL_IN_SERVICE = 95;
+    public static final int MSG_CELL_OUT_OF_SERVICE = 96;
+    public static final int MSG_CHANGE_LOCATION = 40;
+    public static final int MSG_CHECK_4G_COVERAGE = 140;
+    public static final int MSG_COLLECTTRAININGSTATE_WIFI_UPDATE_SCAN_RESULT = 64;
+    public static final int MSG_CONNECTIVITY_CHANGE = 91;
+    public static final int MSG_FINGER_COLLECTING = 70;
+    public static final int MSG_FINGER_NUM_SATISFIED = 80;
+    public static final int MSG_FREQUENTLOCATIONSTATE_WIFI_UPDATE_SCAN_RESULT = 62;
+    public static final int MSG_HIGH_TEMPERATURE = 152;
+    public static final int MSG_IN_FREQ_LOCATION = 30;
+    public static final int MSG_LEAVE_FREQ_LOCATION_TOOL = 55;
+    public static final int MSG_MODEL_UNQUALIFIED = 100;
+    public static final int MSG_OUT_FREQ_LOCATION = 50;
+    public static final int MSG_POWER_CONNECTED = 150;
+    public static final int MSG_POWER_DISCONNECTED = 151;
+    public static final int MSG_QUERY_HISPREFER = 121;
+    public static final int MSG_QUERY_HISQOE = 120;
+    public static final int MSG_RECOGNITIONSTATE_WIFI_UPDATE_SCAN_RESULT = 63;
+    public static final int MSG_SIM_STATE_CHANGE = 94;
+    public static final int MSG_SUPPLICANT_COMPLETE = 92;
+    public static final int MSG_SYS_SHUTDOWN = 130;
+    public static final int MSG_TOOL_FORCE_TRAINING = 60;
+    public static final int MSG_USER_DATA_ACTION = 115;
+    public static final int MSG_USER_NEED_FURTHER_SPACE = 116;
+    public static final int MSG_WIFI_UPDATE_SCAN_RESULT = 61;
+}

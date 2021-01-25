@@ -1,0 +1,26 @@
+package com.huawei.android.bastet;
+
+import android.os.Handler;
+import android.os.RemoteException;
+
+public class BastetEmailExchange extends BastetEmail {
+    private ExchangeHttpHeader mHttpHeader;
+    private ExchangeWbInfo mWbInfo;
+
+    public BastetEmailExchange(EmailLoginInfo login, ExchangeHttpHeader header, ExchangeWbInfo wb, Handler handler) {
+        super(login, null, 3, handler);
+        this.mHttpHeader = header;
+        this.mWbInfo = wb;
+    }
+
+    @Override // com.huawei.android.bastet.BastetEmail
+    public void startProxy() throws RemoteException {
+        if (this.mProxyId > 0) {
+            this.mIBastetManager.setExchangeHttpHeader(this.mProxyId, this.mHttpHeader.getVersion(), this.mHttpHeader.getUserAgent(), this.mHttpHeader.getEncoding(), this.mHttpHeader.getPolicyKey(), this.mHttpHeader.getHostName());
+            this.mIBastetManager.updateExchangeWebXmlInfo(this.mProxyId, this.mWbInfo.getCollectionId(), this.mWbInfo.getSyncKey(), this.mWbInfo.getSyncType());
+            this.mIBastetManager.startBastetProxy(this.mProxyId);
+            return;
+        }
+        throw new RemoteException();
+    }
+}
