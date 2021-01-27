@@ -1,0 +1,75 @@
+package huawei.android.widget.plume.action.atomicability;
+
+public class AtomicAbilityConstants {
+    public static final String ATTR_EXTEND_DEFAULT_MARGIN = "hwLayoutDefaultExtendMargin";
+    public static final String ATTR_EXTEND_ENABLED = "hwLayoutExtendEnabled";
+    public static final String ATTR_EXTEND_MIN_MARGIN = "hwLayoutMinExtendMargin";
+    public static final String ATTR_EXTEND_REVEAL_ENABLED = "hwLayoutExtendRevealEnabled";
+    public static final String ATTR_EXTEND_REVEAL_SIZE = "hwLayoutExtendRevealSize";
+    public static final String ATTR_HORIZONTAL_HIDE_ENABLED = "hwLayoutHorizontalHideEnabled";
+    public static final String ATTR_HORIZONTAL_STRETCH_ENABLED = "hwLayoutHorizontalStretchEnabled";
+    public static final String ATTR_LAYOUT_HORIZONTAL_HIDE_PRIORITY = "layout_hwHorizontalHidePriority";
+    public static final String ATTR_LAYOUT_MAX_SCALE_HEIGHT = "layout_hwMaxScaleHeight";
+    public static final String ATTR_LAYOUT_MAX_SCALE_WIDTH = "layout_hwMaxScaleWidth";
+    public static final String ATTR_LAYOUT_MIN_SCALE_HEIGHT = "layout_hwMinScaleHeight";
+    public static final String ATTR_LAYOUT_MIN_SCALE_WIDTH = "layout_hwMinScaleWidth";
+    public static final String ATTR_LAYOUT_SCALE_RATE_HEIGHT = "layout_hwScaleRateOfParentHeight";
+    public static final String ATTR_LAYOUT_SCALE_RATE_WIDTH = "layout_hwScaleRateOfParentWidth";
+    public static final String ATTR_LAYOUT_VERTICAL_HIDE_PRIORITY = "layout_hwVerticalHidePriority";
+    public static final String ATTR_LAYOUT_WEIGHT = "layout_hwWeight";
+    public static final String ATTR_LAYOUT_WRAP_REFERENCE_SIZE = "layout_hwWrapReferenceSize";
+    public static final String ATTR_MAX_HEIGHT = "maxHeight";
+    public static final String ATTR_MAX_WIDTH = "maxWidth";
+    public static final String ATTR_MIN_HEIGHT = "minHeight";
+    public static final String ATTR_MIN_WIDTH = "minWidth";
+    public static final String ATTR_PADDING_BOTTOM = "paddingBottom";
+    public static final String ATTR_PADDING_END = "paddingEnd";
+    public static final String ATTR_PADDING_START = "paddingStart";
+    public static final String ATTR_PADDING_TOP = "paddingTop";
+    public static final String ATTR_SCALE_ENABLED = "hwLayoutScaleEnabled";
+    public static final String ATTR_SPREAD_ENABLED = "hwLayoutSpreadEnabled";
+    public static final String ATTR_SPREAD_MAX_MARGIN = "hwLayoutMaxSpreadMargin";
+    public static final String ATTR_SPREAD_MIN_MARGIN = "hwLayoutMinSpreadMargin";
+    public static final String ATTR_SPREAD_TYPE = "hwLayoutSpreadType";
+    public static final String ATTR_VERTICAL_HIDE_ENABLED = "hwLayoutVerticalHideEnabled";
+    public static final String ATTR_VERTICAL_STRETCH_ENABLED = "hwLayoutVerticalStretchEnabled";
+    public static final String ATTR_WEIGHT_ENABLED = "hwLayoutWeightEnabled";
+    public static final String ATTR_WRAP_DIRECTION = "hwLayoutWrapDirection";
+    public static final String ATTR_WRAP_ENABLED = "hwLayoutWrapEnabled";
+    public static final String ATTR_WRAP_GRAVITY = "hwLayoutWrapGravity";
+    public static final String METHOD_EXTEND_DEFAULT_MARGIN = "setLayoutDefaultExtendMargin";
+    public static final String METHOD_EXTEND_ENABLED = "setLayoutExtendEnabled";
+    public static final String METHOD_EXTEND_MIN_MARGIN = "setLayoutMinExtendMargin";
+    public static final String METHOD_EXTEND_REVEAL_ENABLED = "setLayoutExtendRevealEnabled";
+    public static final String METHOD_EXTEND_REVEAL_SIZE = "setLayoutExtendRevealSize";
+    public static final String METHOD_HORIZONTAL_HIDE_ENABLED = "setLayoutHideEnabled";
+    public static final String METHOD_HORIZONTAL_STRETCH_ENABLED = "setLayoutHorizontalStretchEnabled";
+    public static final String METHOD_LAYOUT_HORIZONTAL_HIDE_PRIORITY = "setHidePriority";
+    public static final String METHOD_LAYOUT_MAX_SCALE_HEIGHT = "setMaxScaleHeight";
+    public static final String METHOD_LAYOUT_MAX_SCALE_WIDTH = "setMaxScaleWidth";
+    public static final String METHOD_LAYOUT_MIN_SCALE_HEIGHT = "setMinScaleHeight";
+    public static final String METHOD_LAYOUT_MIN_SCALE_WIDTH = "setMinScaleWidth";
+    public static final String METHOD_LAYOUT_SCALE_RATE_HEIGHT = "setScaleRateOfParentHeight";
+    public static final String METHOD_LAYOUT_SCALE_RATE_WIDTH = "setScaleRateOfParentWidth";
+    public static final String METHOD_LAYOUT_VERTICAL_HIDE_PRIORITY = "setHidePriority";
+    public static final String METHOD_LAYOUT_WEIGHT = "setWeight";
+    public static final String METHOD_LAYOUT_WRAP_REFERENCE_SIZE = "setWrapReferenceSize";
+    public static final String METHOD_MAX_HEIGHT = "setMaxHeight";
+    public static final String METHOD_MAX_WIDTH = "setMaxWidth";
+    public static final String METHOD_MIN_HEIGHT = "setMinimumHeight";
+    public static final String METHOD_MIN_WIDTH = "setMinimumWidth";
+    public static final String METHOD_SCALE_ENABLED = "setLayoutScaleEnabled";
+    public static final String METHOD_SPREAD_ENABLED = "setLayoutSpreadEnabled";
+    public static final String METHOD_SPREAD_MAX_MARGIN = "setLayoutMaxSpreadMargin";
+    public static final String METHOD_SPREAD_MIN_MARGIN = "setLayoutMinSpreadMargin";
+    public static final String METHOD_SPREAD_TYPE = "setLayoutSpreadType";
+    public static final String METHOD_VERTICAL_HIDE_ENABLED = "setLayoutHideEnabled";
+    public static final String METHOD_VERTICAL_STRETCH_ENABLED = "setLayoutVerticalStretchEnabled";
+    public static final String METHOD_WEIGHT_ENABLED = "setLayoutWeightEnabled";
+    public static final String METHOD_WRAP_DIRECTION = "setLayoutWrapDirection";
+    public static final String METHOD_WRAP_ENABLED = "setLayoutWrapEnabled";
+    public static final String METHOD_WRAP_GRAVITY = "setLayoutWrapGravity";
+
+    private AtomicAbilityConstants() {
+    }
+}

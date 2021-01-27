@@ -1,1 +1,1 @@
-include ':app', ':Honor5C-7.0', ':P9-8.0',':Mate20-9.0',':DVC-AN20_EMUI10.1.1',':MATE-20_EMUI_11.0.0'
+include ':app', ':Honor5C-7.0', ':P9-8.0',':Mate20-9.0',':DVC-AN20_EMUI10.1.1',':MATE-20_EMUI_11.0.0', ':P40_HarmonyOS_2.0.0_Developer_Beta1'

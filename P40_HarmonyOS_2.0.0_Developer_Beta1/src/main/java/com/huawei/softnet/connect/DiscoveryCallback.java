@@ -1,0 +1,7 @@
+package com.huawei.softnet.connect;
+
+public interface DiscoveryCallback {
+    void onDeviceFound(DeviceDesc deviceDesc);
+
+    void onDeviceLost(DeviceDesc deviceDesc);
+}
