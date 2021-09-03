@@ -196,3 +196,89 @@ tmp目录下即为系统文件。
 
 ## Android 10
 Android 10上面,vdex不包含dex文件了，dex文件存放在原apk中或者jar包中。
+
+## Android 11
+Android 11 新增`apex`格式文件，部分代码存储在`/system/apex`目录下面：
+```
+system/apex/
+├── com.android.apex.cts.shim.apex
+├── com.android.art.release.apex
+├── com.android.i18n.apex
+├── com.android.permission.apex
+├── com.android.runtime.apex
+├── com.android.vndk.current.apex
+├── com.android.wifi.apex
+├── com.google.android.adbd.apex
+├── com.google.android.cellbroadcast.apex
+├── com.google.android.conscrypt.apex
+├── com.google.android.extservices.apex
+├── com.google.android.ipsec.apex
+├── com.google.android.media.apex
+├── com.google.android.mediaprovider.apex
+├── com.google.android.media.swcodec.apex
+├── com.google.android.neuralnetworks.apex
+├── com.google.android.os.statsd.apex
+├── com.google.android.permission.apex
+├── com.google.android.resolv.apex
+├── com.google.android.sdkext.apex
+├── com.google.android.tethering.apex
+└── com.google.android.tzdata2.apex
+
+```
+以`com.android.wifi.apex`为例：
+1. 查看文件格式：
+```
+file com.android.wifi.apex 
+
+output:
+
+com.android.wifi.apex: Java archive data (JAR)
+```
+2. 解压文件:
+```
+unzip com.android.wifi.apex -d com.android.wifi.apex_out
+
+查看解压后的文件:
+
+com.android.wifi.apex_out/
+├── AndroidManifest.xml
+├── apex_build_info.pb
+├── apex_manifest.pb
+├── apex_payload.img
+├── apex_pubkey
+├── assets
+├── META-INF
+└── resources.arsc
+
+```
+
+3. 挂载`apex_payload.img`文件:
+```
+sudo mount -o loop,ro apex_payload.img tmp/
+```
+4. 查看tmp目录下内容:
+```
+tmp
+├── apex_manifest.pb
+├── app
+│   └── OsuLogin
+│       └── OsuLogin.apk
+├── etc
+│   └── security
+│       └── cacerts_wfa
+│           ├── 21125ccd.0
+│           ├── 674b5f5b.0
+│           └── ea93cb5b.0
+├── javalib
+│   ├── framework-wifi.jar
+│   └── service-wifi.jar
+├── lost+found [error opening dir]
+└── priv-app
+    └── ServiceWifiResources
+        └── ServiceWifiResources.apk
+```
+`javalib`目录下的jar即为`wifi　service`相关的源码。
+ps: Android 10上的`/system/apex`目录下存放的是对应的文件夹，在文件夹下存放着相关的jar包，省去了解压挂载文件系统的步骤。
+WifiServiceImpl.java所在的jar,需要查看bp文件。
+https://android.googlesource.com/platform/frameworks/opt/net/wifi/+/refs/tags/android-11.0.0_r42/service/Android.bp。
+
