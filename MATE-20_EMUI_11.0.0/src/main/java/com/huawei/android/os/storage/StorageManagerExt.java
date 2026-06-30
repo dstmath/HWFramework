@@ -29,7 +29,7 @@ public class StorageManagerExt {
             try {
                 return storageManager.getPreLoadPolicyFlag(userId, serialNumber);
             } catch (RemoteException e) {
-                Log.e(TAG, "fialed to get flag!");
+                Log.e(TAG, "failed to get flag!");
                 return -1;
             }
         }
@@ -45,7 +45,7 @@ public class StorageManagerExt {
         try {
             storageManager.lockUserScreenISec(userId, serialNumber);
         } catch (RemoteException e) {
-            Log.e(TAG, "fialed to delete key!");
+            Log.e(TAG, "failed to delete key!");
         }
     }
 
